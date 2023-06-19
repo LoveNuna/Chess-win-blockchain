@@ -1,0 +1,190 @@
+@import "../../../../../../assets/style/style.scss";
+
+.login-form {
+	margin: 0 auto;
+	position: relative;
+	padding: 0 20px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	column-gap: 40px;
+
+	@include mq(576px) {
+		max-width: 500px;
+		display: block;
+	}
+
+	.form-group {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		position: relative;
+	}
+
+	.label {
+		font-family: "aileron-semibold", sans-serif;
+		font-size: 14px;
+		line-height: 18px;
+		color: $mushroom;
+		text-transform: uppercase;
+		margin-bottom: 8px;
+		margin-top: 32px;
+	}
+
+	.chess-input {
+		background-color: transparent;
+		border: 1px solid #ecbe7d;
+		border-radius: 4px;
+		padding: 12px;
+		font-size: 12px;
+		color: #fff;
+		outline: none;
+
+		&:-internal-autofill-selected {
+			background-color: transparent !important;
+		}
+
+		&::placeholder {
+			color: darken($very-light-pink-2, 15%);
+			font-size: 12px;
+		}
+	}
+
+	.button-sand-gradient {
+		width: 100%;
+		margin-top: 35px;
+		font-family: "aileron-bold", sans-serif;
+		font-size: 16px;
+		line-height: 22px;
+		letter-spacing: normal;
+	}
+}
+
+.error-message {
+	position: absolute;
+	left: 12px;
+	top: calc(100% + 5px);
+	font-family: "aileron-regular", sans-serif;
+	font-size: 12px;
+	color: $coral-pink;
+}
+
+html {
+	font-family: "Abel";
+}
+
+.pageTitle {
+	text-align: center;
+	margin-top: 20px;
+	font-size: 40px;
+	font-family: "Domine" !important;
+}
+
+.form-group {
+	width: 290px;
+	margin-bottom: 10px;
+}
+
+.formInner {
+	width: 600px;
+	max-width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 20px auto;
+}
+
+#payButton {
+	width: 290px;
+	display: block;
+	margin: 20px auto;
+	height: 50px !important;
+	font-size: 20px;
+	background-color: #1ad18e;
+	border-color: #1ad18e;
+	box-shadow: 0 3px 10px #bbbbbb;
+}
+
+#payButton:hover {
+	background-color: #19c687;
+	border-color: #19c687;
+	box-shadow: 0 3px 4px #bbbbbb;
+}
+
+#payButton:active {
+	opacity: 0.7;
+}
+
+.form-control {
+	border: 3px solid #ffffff !important;
+	box-shadow: 0 2px 8px #dddddd !important;
+	font-family: "Abel";
+	height: 30px;
+	width: 100%;
+}
+
+.form-control:hover {
+	box-shadow: 0 2px 4px #dddddd;
+}
+
+.form-control:focus {
+	box-shadow: 0 2px 4px #dddddd !important;
+	border: 3px solid #1ad18e !important;
+}
+
+#paymentTokenInfo {
+	display: block;
+	width: 600px;
+	margin: 30px auto;
+}
+
+@media only screen and (max-width: 600px) {
+	.pageTitle {
+		font-size: 30px;
+	}
+
+	.theForm {
+		width: 300px;
+		max-width: 90%;
+		margin: auto;
+	}
+
+	.form-group {
+		width: 100%;
+	}
+
+	#paymentTokenInfo {
+		width: 100%;
+	}
+}
+
+.outside-form {
+	@include mq(576px) {
+		margin-top: 30px;
+		padding-bottom: 30px;
+	}
+}
+
+.description1 {
+	margin-top: 30px;
+	color: #a6a5a5;
+	text-align: left;
+	font-size: 13px;
+	padding: 0 20px;
+
+	@include mq(576px) {
+		max-width: 500px;
+		margin: 0 auto;
+	}
+}
+
+.description2 {
+	color: white;
+	text-align: center;
+	line-height: 1.5;
+	padding: 0 20px;
+
+	@include mq(576px) {
+		max-width: 500px;
+		margin: 0 auto;
+	}
+}

@@ -1,0 +1,102 @@
+<div class="header-wrapper">
+	<h1>Requested Withdrawals</h1>
+
+	<!-- <div class="win-toggler">
+		<p>By Time</p>
+
+		<div class="toggler-container">
+			<button [ngClass]="{ active: filterValue === 'week' }" (click)="emitFilter('week')">Last Week</button>
+			<button [ngClass]="{ active: filterValue === 'month' }" (click)="emitFilter('month')">Last Month</button>
+		</div>
+	</div> -->
+</div>
+
+<table *ngIf="withdrawals && !requesting; else loading">
+	<thead>
+		<tr>
+			<th>
+				User
+			</th>
+			<th>
+				Country
+			</th>
+			<th>
+				Amount
+			</th>
+			<th>
+				Status
+			</th>
+			<th>
+				Paypal email
+			</th>
+			<th>
+				Request date
+			</th>
+			<th></th>
+		</tr>
+	</thead>
+
+	<tbody *ngIf="withdrawals.length; else noWithdrawals">
+		<tr *ngFor="let withdrawal of withdrawals">
+			<td>
+				<p class="username">{{ withdrawal.name }}</p>
+				<p>{{ withdrawal.email }}</p>
+			</td>
+			<td class="country-cell">
+				<img src="../../../../../assets/images/flags/{{ withdrawal.country }}.png" width="24px" height="24px"
+					style="margin-right: 8px;" />{{ withdrawal.country }}
+			</td>
+			<td>${{ withdrawal.draw_gold_points }}</td>
+			<td [ngClass]="{
+					'withdrawal-accepted':
+						withdrawal.draw_status === withdrawalStatus.accepted,
+					'withdrawal-rejected':
+						withdrawal.draw_status === withdrawalStatus.rejected,
+					'withdrawal-requested':
+						withdrawal.draw_status === withdrawalStatus.requested
+				}"></td>
+			<td>{{ withdrawal?.paypal_email }}</td>
+			<td>{{ withdrawal?.draw_change_date | date: 'dd/MM/yyyy' }}</td>
+
+			<td>
+				<button *ngIf="withdrawal.draw_status === withdrawalStatus.requested" class="menu-trigger"
+					[matMenuTriggerFor]="action">
+					Select Action
+				</button>
+				<mat-menu #action="matMenu" panelClass="'withdrawal-actions'" xPosition="after"
+					backdropClass="withdrawal">
+					<button mat-menu-item (click)="
+							emitAction({
+								drawStatus: withdrawalStatus.accepted,
+								playerId: withdrawal.id,
+								drawGoldPoints: withdrawal.draw_gold_points
+							})
+						">
+						Accept
+					</button>
+					<button mat-menu-item (click)="
+							emitAction({
+								drawStatus: withdrawalStatus.rejected,
+								playerId: withdrawal.id,
+								drawGoldPoints: withdrawal.draw_gold_points
+							})
+						">
+						Reject
+					</button>
+				</mat-menu>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<ng-template #loading>
+	<div class="loading-container">
+		<app-loading size="70"></app-loading>
+	</div>
+</ng-template>
+
+<ng-template #noWithdrawals>
+	<div class="loading-container">
+		<p>There are no withdrawal requests at the moment!</p>
+	</div>
+</ng-template>

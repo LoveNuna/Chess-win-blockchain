@@ -1,0 +1,29 @@
+<div class="profile-container">
+	<div class="logo-container">
+		<a routerLink="/app">
+			<img src="../../../../../../assets/images/dashboard/chess-win-logo.png" alt="chess-win-logo"
+				width="120px" />
+		</a>
+	</div>
+
+	<div class="profile">
+		<a class="profile__settings-icon-container" matTooltip="Preferences" matTooltipPosition="below"
+			matTooltipShowDelay="500" matTooltipClass="tooltip-custom" [matMenuTriggerFor]="menu">
+			<img class="profile__settings-icon" src="../../../../../../assets/icons/settings-icon.png"
+				alt="profile-settings-icon" width="18px" height="18px" />
+		</a>
+		<mat-menu #menu="matMenu">
+			<button class="menu-button" mat-menu-item (click)="emitSignOut()">Sign out</button>
+		</mat-menu>
+
+		<img *ngIf="user && user['custom:profile_picture']; else defaultUserImage" class="profile__image"
+			[src]="user['custom:profile_picture']" alt="profile-image" width="60px" height="60px" />
+		<h3 class="heading3 profile__name">{{ user?.name }}</h3>
+	</div>
+</div>
+
+<ng-template #defaultUserImage>
+	<img class="profile__image profile__image--default"
+		src="../../../../../../assets/images/dashboard/default-user-image.png" alt="default-profile-image"
+		width="60px" />
+</ng-template>

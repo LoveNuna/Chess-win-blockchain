@@ -1,0 +1,36 @@
+<div class="gradient-background">
+	<div class="section-block faq-section">
+		<div class="wrapper faq-wrapper">
+			<div class="title-area">
+				<div class="content-centered">
+					<h1 class="main-title text-gradient">
+						{{languageLabels?.faq.title}}
+					</h1>
+				</div>
+			</div>
+
+			<div class="accordion-area">
+				<div class="accordion-container" *ngIf="frequentlyAskedQuestions">
+					<div class="accordion-item" appAccordion *ngFor="let faq of frequentlyAskedQuestions">
+						<div class="accordion-header">
+							<a class="accordion-title">
+								<span class="paragraph text-white">
+									{{ faq.question }}
+								</span>
+								<img class="accordion-arrow-icon"
+									src="../../../../../assets/icons/dropdown-icon-sand.png" alt="arrow-right"
+									width="24px" />
+							</a>
+						</div>
+
+						<div class="accordion-body accordion-target hide-body">
+							<p class="paragraph-short text-light-pink">
+								{{ faq.answer }}
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

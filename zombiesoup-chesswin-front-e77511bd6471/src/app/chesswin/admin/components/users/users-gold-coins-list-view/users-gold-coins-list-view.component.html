@@ -1,0 +1,66 @@
+<div class="header-wrapper">
+	<h1>Gold Coins Store Report</h1>
+
+	<div class="win-toggler">
+		<p>By Time</p>
+
+		<div class="toggler-container">
+			<button [ngClass]="{ active: filterValue === 'week' }" (click)="emitFilter('week')">
+				Last Week
+			</button>
+			<button [ngClass]="{ active: filterValue === 'month' }" (click)="emitFilter('month')">
+				Last Month
+			</button>
+		</div>
+	</div>
+</div>
+
+<table *ngIf="users && !requesting; else loading">
+	<thead>
+		<tr>
+			<th>
+				User
+			</th>
+			<th>
+				Country
+			</th>
+			<th>
+				Gold Coins
+			</th>
+			<th>
+				Money
+			</th>
+			<th>
+				Source
+			</th>
+		</tr>
+	</thead>
+
+	<tbody *ngIf="users.length; else noUsers">
+		<tr *ngFor="let user of users" (click)="emitUser(user)">
+			<td>
+				<p class="username">{{ user.name }}</p>
+				<p>{{ user.email }}</p>
+			</td>
+			<td class="country-cell">
+				<img src="../../../../../../assets/images/flags/{{ user.country }}.png" width="24px" height="24px"
+					style="margin-right: 8px;" />{{ user.country }}
+			</td>
+			<td>{{ user.goldCoins }}</td>
+			<td>${{ user.price }}</td>
+			<td>{{ user?.source }}</td>
+		</tr>
+	</tbody>
+</table>
+
+<ng-template #loading>
+	<div class="loading-container">
+		<app-loading size="70"></app-loading>
+	</div>
+</ng-template>
+
+<ng-template #noUsers>
+	<div class="loading-container">
+		<p>No users found...</p>
+	</div>
+</ng-template>

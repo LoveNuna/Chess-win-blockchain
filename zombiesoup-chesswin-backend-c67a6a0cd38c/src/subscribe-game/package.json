@@ -1,0 +1,13 @@
+{
+  "name": "subscribe-game",
+  "description": "Lambda function to subscribe to game",
+  "version": "1.0.0",
+  "dependencies": {
+    "@types/mysql": "^2.15.5",
+    "mysql": "^2.16.0",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.2.4",
+    "webpack": "^4.28.4",
+    "aws-sdk": "^2.388.0"
+  }
+}

@@ -1,0 +1,19 @@
+{
+	"extends": "./tsconfig.base.json",
+	"compilerOptions": {
+		"outDir": "./out-tsc/app",
+		"types": ["node"],
+		"paths": {
+			"common-module": ["src/app/common/common.module.ts"],
+			"facade-service": ["src/app/facade/services/facade.service.ts"],
+			"facade-module": ["src/app/facade/facade.module.ts"]
+		}
+	},
+	"files": ["src/main.ts", "src/polyfills.ts"],
+	"include": ["src/**/*.d.ts"],
+	"paths": {
+		"common-module": ["src/app/common/common.module.ts"],
+		"facade-service": ["src/app/facade/services/facade.service.ts"],
+		"facade-module": ["src/app/facade/facade.module.ts"]
+	}
+}

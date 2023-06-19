@@ -1,0 +1,143 @@
+<div class="container">
+	<div class="chess-profile" *ngIf="user; else loading">
+		<h2>Chess Profile</h2>
+
+		<div class="profile-group">
+			<label>Name</label>
+
+			<div class="info">{{ user.name }}</div>
+		</div>
+
+		<div class="profile-group">
+			<label>Username</label>
+
+			<div class="info">
+				{{ user.preferred_username }}
+			</div>
+		</div>
+
+		<div class="row-group">
+			<div class="profile-group">
+				<label>Gender</label>
+
+				<div class="info">
+					{{ user.gender }}
+				</div>
+			</div>
+
+			<div class="profile-group">
+				<label>Age</label>
+
+				<div class="info">
+					{{ user.age }}
+				</div>
+			</div>
+		</div>
+
+		<div class="row-group">
+			<div class="profile-group">
+				<label>Gold Points</label>
+
+				<div class="info">
+					{{ user['custom:gold_points'] }}
+				</div>
+			</div>
+
+			<div class="profile-group">
+				<button type="button" (click)="emitUpdateGoldCoins(user['custom:gold_points'])">Update gold
+					coins</button>
+			</div>
+		</div>
+
+		<div class="row-group">
+			<div class="profile-group">
+				<label>Standard Points</label>
+
+				<div class="info">
+					{{ user['custom:silver_points'] }}
+				</div>
+			</div>
+
+			<div class="profile-group">
+				<label>Country</label>
+
+				<div class="info">
+					<img *ngIf="user && user.country" class="country-flag"
+						src="../../../../../../assets/images/flags/{{ user['custom:country'] }}.png"
+						alt="user-country-flag" width="15px" height="15px" />
+					{{ user['custom:country'] }}
+				</div>
+			</div>
+		</div>
+
+		<div class="profile-group">
+			<label>Profile Picture</label>
+
+			<img class="profile-picture" src="{{ user['custom:profile_picture'] }}" width="46px" height="46px" />
+		</div>
+
+		<div class="row-group">
+			<div class="profile-group">
+				<button type="button" [disabled]="requesting" (click)="emitUserStatus(user.email, !user.enabled)">
+					{{ user.enabled ? 'Disable User' : 'Enable User' }}
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="game-history" *ngIf="userGameHistory; else loading">
+		<h2>Game History</h2>
+
+		<div *ngIf="userGameHistory.length; else noGames">
+			<div class="game-info" *ngFor="let game of userGameHistory">
+				<div class="game-info__header">
+					<div class="opponent-profile">
+						<img class="opponent-profile__picture" [src]="game.profile_picture" width="52px"
+							height="52px" />
+
+						<div class="opponent-profile__info">
+							<p class="opponent-name">{{ game.name }}</p>
+							<p class="opponent-email">
+								<img src="../../../../../../assets/images/flags/{{ game.country }}.png" width="15px"
+									height="15px" /> {{ game.email }}
+							</p>
+						</div>
+					</div>
+
+					<div class="game-status"
+						[ngClass]="{ 'game-status--won': game.winner_id === user.sub, 'game-status--lost': game.winner_id !== user.sub }">
+						{{ game.winner_id === user.sub ? 'Won' : 'Lost' }}
+					</div>
+				</div>
+
+				<div class="game-preferences">
+					<p class="game-ammount">
+						Preference:
+						<span class="game-type" [ngClass]="{
+                'game-type--gold': game.type == challengeType.gold,
+                'game-type--standard': game.type == challengeType.standard
+              }">{{ game.type == challengeType.gold ? 'GOLD' : 'STANDARD' }}</span>
+						<span *ngIf="game.type == challengeType.gold" class="coin-container"><span
+								class="coin coin--gold">{{ game.winner_points }} <img
+									src="../../../../../../assets/icons/gold-coin-icon.png" width="8px" height="8px" />
+							</span></span>
+					</p>
+					<p class="game-timer">
+						<img src="../../../../../../assets/icons/timer-icon.png" width="14px" height="14px" />
+						{{ getTimeByType(game.game_time_type) }}
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<ng-template #loading>
+	<div class="loading-container">
+		<app-loading [size]="70"></app-loading>
+	</div>
+</ng-template>
+
+<ng-template #noGames>
+	<p style="color: #fff">User hasn't played any games yet!</p>
+</ng-template>

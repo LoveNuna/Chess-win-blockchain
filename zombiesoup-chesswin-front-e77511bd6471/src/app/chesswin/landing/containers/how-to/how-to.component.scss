@@ -1,0 +1,64 @@
+@import "../../../../../assets/style/style.scss";
+
+.gradient-background {
+	background-image: linear-gradient($dark-indigo-two, $midnight-two);
+
+	.how-to-section {
+		position: relative;
+		background: url(../../../../../assets/images/chess-background.png) no-repeat;
+		box-sizing: border-box;
+		background-size: 100%;
+
+		.how-to-wrapper {
+			padding: 42px 0px 110px;
+
+			.title-area {
+				margin-bottom: 55px;
+
+				.text-gradient {
+					background: linear-gradient(to right, rgba(236, 190, 125, 0.33) 0%, #ffc777 60%);
+					background-clip: text;
+					-webkit-background-clip: text;
+					-webkit-text-fill-color: transparent;
+				}
+			}
+
+			.video-area {
+				width: 100%;
+
+				.video-container {
+					width: 100%;
+					display: flex;
+
+					@include mq(992px) {
+						flex-direction: column;
+					}
+
+					.video-player-area {
+						width: 60%;
+						padding-right: 16px;
+						display: flex;
+						flex-direction: column;
+
+						@include mq(992px) {
+							width: 100%;
+						}
+					}
+
+					.suggested-videos-area {
+						width: 40%;
+						padding-left: 16px;
+						padding-top: 32px;
+						display: flex;
+						flex-direction: column;
+
+						@include mq(992px) {
+							width: 100%;
+							padding-left: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}

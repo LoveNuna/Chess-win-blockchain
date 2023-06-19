@@ -1,0 +1,2 @@
+export const UPDATE_FRIEND_STATUS = "UPDATE friends f SET f.status = :status WHERE (f.friend_id = :userId AND f.user_id = :friendId) OR (f.friend_id = :friendId AND f.user_id = :userId)"
+export const DELETE_FRIEND_RECORD = "DELETE FROM friends WHERE (friend_id = :userId AND user_id = :friendId) OR (friend_id = :friendId AND user_id = :userId)"

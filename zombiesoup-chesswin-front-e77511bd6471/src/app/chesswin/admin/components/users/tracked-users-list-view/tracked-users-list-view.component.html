@@ -1,0 +1,61 @@
+<div class="header-wrapper">
+	<h1>Users to track</h1>
+
+	<div class="win-toggler">
+		<p>No. of Days</p>
+
+		<div class="toggler-container">
+			<button [ngClass]="{ active: filterValue === 7 }" (click)="emitFilter(7)">7</button>
+			<button [ngClass]="{ active: filterValue === 10 }" (click)="emitFilter(10)">10</button>
+			<button [ngClass]="{ active: filterValue === 15 }" (click)="emitFilter(15)">15</button>
+		</div>
+	</div>
+</div>
+
+<table *ngIf="users && !requesting; else loading">
+	<thead>
+		<tr>
+			<th>
+				User
+			</th>
+			<th>
+				Country
+			</th>
+			<th>
+				Wins
+			</th>
+			<th>
+				Loses
+			</th>
+		</tr>
+	</thead>
+
+	<tbody *ngIf="users.length; else noUsers">
+		<tr *ngFor="let user of users" (click)="emitUser(user)">
+			<td>
+				<p class="username">{{ user.name }}</p>
+				<p>{{ user.email }}</p>
+			</td>
+			<td class="country-cell">
+				<img src="../../../../../../assets/images/flags/{{ user.country }}.png" width="24px" height="24px"
+					style="margin-right: 8px;" />{{
+          user.country
+        }}
+			</td>
+			<td>{{ user.win }}</td>
+			<td>{{ user.lost }}</td>
+		</tr>
+	</tbody>
+</table>
+
+<ng-template #loading>
+	<div class="loading-container">
+		<app-loading size="70"></app-loading>
+	</div>
+</ng-template>
+
+<ng-template #noUsers>
+	<div class="loading-container">
+		<p>No users found...</p>
+	</div>
+</ng-template>

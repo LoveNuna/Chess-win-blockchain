@@ -1,0 +1,130 @@
+@import "../../../../../assets/style/style.scss";
+
+.header {
+	background-color: $dark-indigo;
+
+	.header-content {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 8px 0px;
+
+		a {
+			height: 100%;
+		}
+
+		.nav-list {
+			height: 100%;
+
+			@include mq(1024px) {
+				display: none;
+			}
+
+			.nav-ul {
+				display: flex;
+				justify-content: flex-end;
+
+				.nav-link {
+					padding: 16px 24px;
+					cursor: pointer;
+
+					@include mq(1200px) {
+						padding: 16px;
+					}
+
+					&--active {
+						color: $sand;
+					}
+
+					a {
+						font-family: "aileron-regular", sans-serif;
+						display: flex;
+						align-items: center;
+
+						&:hover {
+							color: $sand;
+						}
+
+						mat-icon {
+							width: unset;
+							height: unset;
+							margin-right: 4px;
+						}
+					}
+				}
+			}
+		}
+
+		.side-nav-icon {
+			display: none;
+			font-size: 40px;
+			color: #fff;
+			cursor: pointer;
+			width: unset;
+			height: unset;
+
+			@include mq(1024px) {
+				display: inline-block;
+			}
+		}
+	}
+}
+
+.mat-drawer {
+	background-color: #071224;
+}
+
+.mat-drawer-container {
+	background: none;
+}
+
+.side-nav {
+	overflow: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	border-right: none;
+}
+
+.my-sidenav {
+	min-width: 250px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+
+	.nav-ul {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+
+		.nav-link {
+			padding: 16px 24px;
+
+			&--active {
+				color: $sand;
+			}
+
+			a {
+				font-family: "aileron-regular", sans-serif;
+				display: flex;
+				align-items: center;
+
+				&:hover {
+					color: $sand;
+				}
+
+				mat-icon {
+					width: unset;
+					height: unset;
+					margin-right: 4px;
+				}
+			}
+		}
+	}
+}
+
+.admin-container {
+	width: 100%;
+	min-height: calc(100vh - 132px);
+	background-image: linear-gradient(#0b1b32, #051225);
+}

@@ -1,0 +1,66 @@
+<div class="login-area">
+	<form class="login-form" [formGroup]="paymentForm">
+		<div class="form-group">
+			<span class="label">First Name</span>
+			<input formControlName="firstname" class="chess-input" name="first-name" placeholder="First Name"
+				tabindex="1" type="text" />
+			<span *ngIf="submitted && firstnameError" class="error-message">Please enter your first name!</span>
+		</div>
+
+		<div class="form-group">
+			<span class="label">Last Name </span>
+			<input formControlName="lastname" class="chess-input" name="last-name" placeholder="Last Name" tabindex="2"
+				type="text" />
+			<span *ngIf="submitted && lastnameError" class="error-message">Please enter your last name</span>
+		</div>
+
+		<div class="form-group">
+			<span class="label">Street Address </span>
+			<input formControlName="address" class="chess-input" name="street-address" placeholder="Street Address"
+				tabindex="3" type="text" />
+			<span *ngIf="submitted && addressError" class="error-message">Please enter your street address!</span>
+		</div>
+
+		<div class="form-group">
+			<span class="label">City </span>
+			<input formControlName="city" class="chess-input" name="city" placeholder="City" tabindex="4" type="text" />
+			<span *ngIf="submitted && cityError" class="error-message">Please enter your city!</span>
+		</div>
+
+		<div class="form-group">
+			<span class="label">Country </span>
+			<input formControlName="state" class="chess-input" name="state" placeholder="Country" tabindex="5"
+				type="text" />
+			<span *ngIf="submitted && stateError" class="error-message">Please enter your state!</span>
+		</div>
+
+		<div class="form-group">
+			<span class="label">Zip Code </span>
+			<input formControlName="zip" class="chess-input" name="zip-code" placeholder="Zip Code" tabindex="6"
+				type="text" />
+			<span *ngIf="submitted && zipError" class="error-message">Please enter your zip code!</span>
+		</div>
+	</form>
+
+	<div class="outside-form">
+		<h6 class="description1">
+			A popup to enter card details will be shown.
+		</h6>
+
+		<button type="submit" id="payButton" [disabled]="loading" class="button button-sand-gradient"
+			(click)="handlePayment()" (click)="emitForm()">
+			<p *ngIf="!loading; else loginLoading">Buy {{ buyGold }} Gold Coins</p>
+		</button>
+
+		<h4 class="description2">
+			We do not store any payment information. All we get we transfer in a
+			secure and encrypted form to our payment provider.
+		</h4>
+	</div>
+
+	<div id="paymentTokenInfo"></div>
+</div>
+
+<ng-template #loginLoading>
+	<app-loading [size]="25"></app-loading>
+</ng-template>

@@ -1,0 +1,292 @@
+@import "../../../../../../assets/style/style.scss";
+
+.container {
+	width: 100%;
+	padding: 80px 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+.chess-profile {
+	width: 49%;
+	display: flex;
+	flex-direction: column;
+	padding: 46px 81px 46px 62px;
+	border: 1px solid $sand;
+	border-radius: 4px;
+	background-color: rgb(7, 18, 36);
+
+	@include mq(1200px) {
+		padding: 32px;
+	}
+
+	@include mq(992px) {
+		width: 100%;
+	}
+
+	h2 {
+		font-family: "aileron-bold", sans-serif;
+		font-size: 24px;
+		color: #fff;
+		margin-bottom: 32px;
+	}
+
+	.row-group {
+		width: 100%;
+
+		@include grid(2, 22px, 0);
+
+		@include mq(576px) {
+			@include grid(1, 22px, 0);
+		}
+	}
+
+	.profile-group {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		margin-bottom: 24px;
+
+		label {
+			font-family: "aileron-regular", sans-serif;
+			font-size: 13px;
+			color: rgba(255, 255, 255, 0.5);
+			margin-bottom: 8px;
+		}
+
+		.info {
+			display: flex;
+			align-items: center;
+			width: 100%;
+			height: 46px;
+			padding: 0 16px;
+			border: 1px solid rgb(11, 37, 78);
+			border-radius: 4px;
+			background-color: rgb(7, 26, 50);
+			font-family: "aileron-bold", sans-serif;
+			font-size: 16px;
+			color: #fff;
+		}
+
+		.country-flag {
+			object-fit: cover;
+			object-position: center;
+			border-radius: 50%;
+			margin-right: 8px;
+		}
+
+		.profile-picture {
+			object-fit: cover;
+			object-position: center;
+			border-radius: 50%;
+		}
+
+		button {
+			width: 100%;
+			height: 46px;
+			border: 1px solid rgb(14, 82, 137);
+			border-radius: 4px;
+			background-color: rgb(23, 45, 63);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			text-decoration: none;
+			outline: none;
+			font-family: "aileron-bold", sans-serif;
+			font-size: 16px;
+			color: #fff;
+			cursor: pointer;
+		}
+	}
+}
+
+.game-history {
+	width: 49%;
+	display: flex;
+	flex-direction: column;
+	padding: 46px 81px 46px 62px;
+	border: 1px solid $sand;
+	border-radius: 4px;
+	background-color: rgb(7, 18, 36);
+
+	@include mq(1200px) {
+		padding: 32px;
+	}
+
+	@include mq(992px) {
+		width: 100%;
+	}
+
+	h2 {
+		font-family: "aileron-bold", sans-serif;
+		font-size: 24px;
+		color: #fff;
+		margin-bottom: 32px;
+	}
+
+	.game-info {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		border: 1px solid rgb(11, 37, 78);
+		border-radius: 4px;
+		background-color: rgb(7, 25, 50);
+		margin-bottom: 24px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		&__header {
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			border-bottom: 1px solid rgb(11, 37, 78);
+
+			.opponent-profile {
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+				padding: 10px;
+
+				&__picture {
+					object-fit: cover;
+					object-position: center;
+					border-radius: 50%;
+					margin-right: 10px;
+				}
+
+				&__info {
+					display: flex;
+					flex-direction: column;
+
+					.opponent-name {
+						font-family: "aileron-bold", sans-serif;
+						font-size: 16px;
+						color: #fff;
+						margin-bottom: 8px;
+					}
+
+					.opponent-email {
+						font-family: "aileron-regular", sans-serif;
+						font-size: 13px;
+						color: rgb(60, 80, 128);
+						display: flex;
+						align-items: center;
+
+						img {
+							object-fit: cover;
+							object-position: center;
+							border-radius: 50%;
+							margin-right: 8px;
+						}
+					}
+				}
+			}
+
+			.game-status {
+				width: 100px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding: 0 20px;
+				border-left: 1px solid rgb(11, 37, 78);
+				font-family: "aileron-bold", sans-serif;
+				font-size: 24px;
+
+				&--won {
+					color: rgb(100, 197, 92);
+				}
+
+				&--lost {
+					color: rgb(206, 59, 53);
+				}
+			}
+		}
+
+		.game-preferences {
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			padding: 10px 20px 10px 10px;
+
+			.game-ammount {
+				font-family: "aileron-regular", sans-serif;
+				font-size: 13px;
+				color: #fff;
+				display: flex;
+
+				.game-type {
+					font-family: "aileron-bold", sans-serif;
+					margin-left: 8px;
+
+					&--gold {
+						color: $sand;
+					}
+
+					&--standard {
+						color: #c6bfbb;
+					}
+				}
+
+				.coin-container {
+					width: 38px;
+					height: 13px;
+					background: linear-gradient(rgb(250, 217, 97), rgb(239, 145, 92));
+					border-radius: 6.7px;
+					margin-left: 8px;
+					padding: 1px;
+					display: flex;
+					box-sizing: border-box;
+
+					.coin {
+						width: 100%;
+						height: 100%;
+						border-radius: 6.7px;
+						background: linear-gradient(rgb(14, 13, 13), rgb(78, 60, 60));
+						font-family: "aileron-regular", sans-serif;
+						font-size: 7.7px;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						box-sizing: border-box;
+
+						&--gold {
+							color: rgb(255, 197, 46);
+						}
+
+						img {
+							object-fit: cover;
+							object-position: center;
+							margin-left: 2px;
+						}
+					}
+				}
+			}
+
+			.game-timer {
+				display: flex;
+				align-items: center;
+				font-family: "aileron-bold", sans-serif;
+				font-size: 13px;
+				color: #fff;
+
+				img {
+					margin-right: 8px;
+					object-fit: cover;
+					object-position: center;
+				}
+			}
+		}
+	}
+}
+
+.loading-container {
+	width: 100%;
+	padding: 32px 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

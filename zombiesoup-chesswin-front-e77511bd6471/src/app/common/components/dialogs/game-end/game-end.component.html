@@ -1,0 +1,12 @@
+<mat-dialog-content>
+	<h1>{{ dialogData.winner ? 'You win' : 'You lose' }}</h1>
+	<p *ngIf="dialogData.winner">You won ${{ dialogData.winnerPoints }}! Commission: ${{ dialogData.commission }}</p>
+	<div class="actions">
+		<button class="cancel-button" (click)="respondToRequest(false)">Close</button>
+		<button class="confirm-button" (click)="respondToRequest(true)">Rematch</button>
+	</div>
+</mat-dialog-content>
+
+<ng-template #loserDialog>
+	<p>You lost the game! Better luck next time.</p>
+</ng-template>

@@ -1,0 +1,13 @@
+<div class="container">
+	<app-stats-view [stats]="withdrawalData"></app-stats-view>
+
+	<app-withdrawals-view [withdrawals]="withdrawalsToShow" [requesting]="requesting"
+		(filterEmitter)="filterWithdrawals($event)" (actionEmitter)="handleWithdrawalAction($event)">
+	</app-withdrawals-view>
+
+	<div class="paginator-container">
+		<app-paginator *ngIf="withdrawals && withdrawals.length" [page]="1" [total]="withdrawals.length"
+			[perPage]="withdrawalsPerPage" [pagesToShow]="pagesToShow"
+			(pageChangedEmitter)="filterWithdrawalsPerPage($event)"></app-paginator>
+	</div>
+</div>

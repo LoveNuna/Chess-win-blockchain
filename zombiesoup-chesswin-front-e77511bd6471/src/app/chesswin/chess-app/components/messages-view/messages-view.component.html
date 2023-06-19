@@ -1,0 +1,36 @@
+<div class="messages-view-container">
+	<div class="challenge"
+		[ngClass]="{ 'challenge--standard': game?.type === challengeType.standard, 'challenge--gold': game?.type === challengeType.gold }">
+		<h1 class="main-heading">{{ game.type === challengeType.standard ? 'Standard' : 'Gold' }} Challenge</h1>
+		<div class="paragraph-container" *ngIf="game?.type === challengeType.gold">
+			<img alt="challenge-type-icon" src="../../../../../assets/icons/gold-coin-icon.png" width="22px"
+				height="22px" />
+			<p>
+				{{ game?.points }}
+			</p>
+		</div>
+	</div>
+
+	<div class="messages-container">
+		<div class="messages-header">
+			<p>{{ game?.opponent.name }}</p>
+		</div>
+
+		<div class="messages" *ngIf="messages && messages.length">
+			<div class="message" *ngFor="let message of messages; let i = index" [ngClass]="{
+          'message--incoming': message.userId === game?.opponent.id,
+          'message--mine': message.userId === game?.user.sub,
+          'message--last': !messages[i + 1] || message.userId !== messages[i + 1].userId
+        }">
+				<img *ngIf="message.userId === game?.opponent.id" [src]="
+            game.opponent.profile_picture ? game.opponent.profile_picture : '../../../../../assets/images/dashboard/default-user-image.png'
+          " alt="user-image" width="36px" height="36px" />
+				<p class="paragraph">{{ message.message }}</p>
+				<span *ngIf="message.userId === game?.user.sub && i === messages.length - 1">{{ messageStatus }}</span>
+			</div>
+		</div>
+
+		<textarea type="text" placeholder="Type a message here..." [(ngModel)]="message"
+			(keyup.enter)="emitMessage()"></textarea>
+	</div>
+</div>

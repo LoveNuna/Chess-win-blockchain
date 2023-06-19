@@ -1,0 +1,3 @@
+<app-users-details-view [user]="user | async" [userGameHistory]="userGameHistory | async" [requesting]="requesting"
+	(userStatusEmitter)="changeUserStatus($event)" (updateGoldCoinsEmitter)="updateUserGoldCoins($event)">
+</app-users-details-view>

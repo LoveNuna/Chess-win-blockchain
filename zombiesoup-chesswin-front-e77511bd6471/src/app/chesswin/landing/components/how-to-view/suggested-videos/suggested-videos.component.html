@@ -1,0 +1,35 @@
+<div class="up-next-video" *ngIf="upNextVideoObject">
+	<p class="paragraph text-white text-semibold up-next-text">
+		Up Next
+	</p>
+	<a (click)="changeSelectedVideo(upNextVideoObject.id)" class="suggested-video-item">
+		<div class="image-container">
+			<img class="thumbnail-image" src="../../../../../../assets/images/{{ upNextVideoObject.thumbnail }}"
+				alt="chess-game-image" />
+		</div>
+		<div class="suggested-video-texts">
+			<p class="paragraph text-sand suggested-video-title">
+				{{ upNextVideoObject.title }}
+			</p>
+			<p class="body-text text-light-pink suggested-video-description"
+				[innerHTML]="upNextVideoObject?.description"></p>
+		</div>
+	</a>
+</div>
+<div class="suggested-videos" *ngIf="suggestedVideos && suggestedVideos.length">
+	<p class="paragraph text-white text-semibold suggested-video-text">
+		Suggested
+	</p>
+	<a class="suggested-video-item" *ngFor="let video of suggestedVideos" (click)="changeSelectedVideo(video.id)">
+		<div class="image-container">
+			<img class="thumbnail-image" src="../../../../../assets/images/{{ video?.thumbnail }}"
+				alt="{{ video?.title }}-image" />
+		</div>
+		<div class="suggested-video-texts">
+			<p class="paragraph text-sand suggested-video-title">
+				{{ video?.title }}
+			</p>
+			<p class="body-text text-light-pink suggested-video-description" [innerHTML]="video?.description"></p>
+		</div>
+	</a>
+</div>

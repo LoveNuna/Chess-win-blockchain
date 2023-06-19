@@ -1,0 +1,30 @@
+<div class="wrapper">
+	<div class="auth-container">
+		<h1>Admin Login</h1>
+
+		<form novalidate class="auth-form" [formGroup]="authForm" (ngSubmit)="emitAuthForm()">
+			<div class="form-group">
+				<span class="label">Username</span>
+				<input type="text" class="chess-input" name="username" formControlName="username" tabindex="1" />
+				<span class="error-message" *ngIf="submitted && usernameInvalid">Please enter username!</span>
+			</div>
+
+			<div class="form-group">
+				<span class="label">Password</span>
+				<input type="password" name="password" style="display: none" autocomplete="new-password" />
+				<input type="password" class="chess-input" name="password" formControlName="password" tabindex="2" />
+				<span class="error-message" *ngIf="submitted && passwordInvalid">Please enter password!</span>
+			</div>
+
+			<span class="server-error">{{ serverError }}</span>
+
+			<button class="button button-sand-gradient" type="submit" tabindex="3" [disabled]="requesting">
+				<p *ngIf="!requesting; else loginLoading">Log in</p>
+			</button>
+		</form>
+	</div>
+</div>
+
+<ng-template #loginLoading>
+	<app-loading [size]="25"></app-loading>
+</ng-template>

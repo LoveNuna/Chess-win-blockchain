@@ -1,0 +1,12 @@
+{
+  "name": "send-messages",
+  "description": "Lambda function to send game messages",
+  "version": "1.0.0",
+  "dependencies": {
+    "@types/node": "^10.12.18",
+    "aws-sdk": "^2.395.0",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.2.4",
+    "webpack": "^4.28.4"
+  }
+}

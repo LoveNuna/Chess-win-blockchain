@@ -1,0 +1,93 @@
+@import "../../../../../../assets/style/style.scss";
+
+.challenge-container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	padding: 0 32px;
+}
+
+.points {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	padding: 16px 0;
+
+	&__title {
+		text-transform: uppercase;
+		font-size: 12px;
+		margin-bottom: 8px;
+		color: rgb(158, 160, 165);
+	}
+
+	&__points-info {
+		width: 100%;
+		height: 70px;
+		display: flex;
+		align-items: center;
+
+		img {
+			margin-right: 8px;
+		}
+
+		p {
+			color: #fff;
+		}
+
+		h2 {
+			text-align: right;
+			margin-left: auto;
+		}
+
+		&--gold {
+			h2 {
+				color: rgb(255, 214, 99) !important;
+			}
+		}
+
+		&--silver {
+			border-bottom: 1px solid rgb(23, 45, 63);
+			h2 {
+				color: rgb(224, 224, 224);
+			}
+		}
+	}
+}
+
+.play-now {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+
+	&__title {
+		text-transform: uppercase;
+		font-size: 12px;
+		margin-bottom: 8px;
+		color: rgb(158, 160, 165);
+	}
+
+	&__button {
+		width: 100%;
+		height: 50px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 16px;
+		color: rgb(53, 58, 81);
+		text-transform: uppercase;
+		border-radius: 4px;
+		outline: none;
+		cursor: pointer;
+		font-weight: 700;
+
+		&--gold-challenge-button {
+			background: linear-gradient(-45deg, rgb(228, 186, 99), rgb(255, 221, 159));
+			margin-bottom: 16px;
+		}
+
+		&--standard-challenge-button {
+			background: linear-gradient(-45deg, #62c161, #a9d2ad);
+			margin-bottom: 24px;
+		}
+	}
+}

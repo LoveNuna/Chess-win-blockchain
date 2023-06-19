@@ -1,0 +1,16 @@
+<div class="dashboard-container">
+	<h1 *ngIf="title">{{ title }}</h1>
+
+	<div class="grid-container" *ngFor="let item of stats">
+		<h2>{{ item.title }}</h2>
+
+		<div class="grid">
+			<div class="grid-item-container {{ item.classModifier }}-item-container" *ngFor="let data of item.data">
+				<div class="item {{ item.classModifier }}-item">
+					<p>{{ data.value | appHumanizeNumber }}</p>
+					<p>{{ data.name }}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

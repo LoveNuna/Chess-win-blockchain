@@ -1,0 +1,22 @@
+<app-header [sidenavOpened]="sidenavOpen" (toggleSidenavEmitter)="toggleSidenav()"
+	(changeLanguageEmitter)="setLanguage($event)"></app-header>
+
+<mat-sidenav-container>
+	<mat-sidenav #sidenav [autoFocus]="false" mode="over" position="end" [(opened)]="sidenavOpen"
+		(closed)="sidenavOpen = false">
+		<div class="my-sidenav">
+			<a routerLink="/">Home</a>
+			<a routerLink="/fair-play" routerLinkActive="link-active">Fair Play</a>
+			<a routerLink="/faq" routerLinkActive="link-active">FAQ</a>
+			<a routerLink="/how-to" routerLinkActive="link-active">Info</a>
+			<a routerLink="/contact-us" routerLinkActive="link-active">Contact Us</a>
+			<!-- <a routerLink="/about-us" routerLinkActive="link-active">About Us</a> -->
+		</div>
+	</mat-sidenav>
+
+	<mat-sidenav-content>
+		<router-outlet></router-outlet>
+
+		<app-landing-footer></app-landing-footer>
+	</mat-sidenav-content>
+</mat-sidenav-container>

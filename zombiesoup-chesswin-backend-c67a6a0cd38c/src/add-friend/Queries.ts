@@ -1,0 +1,1 @@
+export const INSERT_NEW_FRIEND_RECORD = "INSERT INTO friends (user_id, friend_id, status, date) VALUES (:userId, :friendId, :status, :date), (:friendId, :userId, :status + 1, :date)"

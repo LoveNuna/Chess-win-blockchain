@@ -1,0 +1,66 @@
+@import "../../../../../../assets/style/style.scss";
+
+h1 {
+	font-family: "aileron-regular", sans-serif;
+	font-size: 32px;
+	margin-bottom: 16px;
+	color: $very-light-pink;
+}
+
+input {
+	width: 100%;
+	max-width: 300px;
+	background-color: transparent;
+	border: 1px solid #ecbe7d;
+	border-radius: 4px;
+	padding: 12px;
+	font-size: 12px;
+	color: #fff;
+	outline: none;
+	margin-bottom: 24px;
+
+	&:-internal-autofill-selected {
+		background-color: transparent !important;
+	}
+
+	&::placeholder {
+		color: darken($very-light-pink-2, 15%);
+		font-size: 12px;
+	}
+}
+
+.actions {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+
+	button {
+		width: 120px;
+		height: 36px;
+		border-radius: 4px;
+		background-color: rgb(55, 67, 95);
+		outline: none;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-family: "aileron-bold", sans-serif;
+		font-size: 14px;
+		text-transform: uppercase;
+		cursor: pointer;
+		transition: all ease 0.1s;
+		-webkit-transition: all ease 0.1s;
+		-moz-transition: all ease 0.1s;
+	}
+
+	.confirm-button {
+		background: linear-gradient(-45deg, #62c161, #a9d2ad);
+		color: #000;
+		margin-left: 8px;
+	}
+
+	.cancel-button {
+		background: $coral-pink;
+		color: #fff;
+	}
+}

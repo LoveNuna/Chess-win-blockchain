@@ -1,0 +1,13 @@
+{
+  "name": "register-draw-request",
+  "description": "Lambda function to register draw request",
+  "version": "1.0.0",
+  "dependencies": {
+    "@types/node": "^10.12.18",
+    "aws-sdk": "^2.391.0",
+    "mysql": "^2.16.0",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.2.4",
+    "webpack": "^4.28.4"
+  }
+}

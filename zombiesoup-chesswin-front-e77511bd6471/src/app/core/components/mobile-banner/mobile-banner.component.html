@@ -1,0 +1,19 @@
+<div class="smartbanner">
+	<div class="smartbanner__icon"></div>
+	<div class="smartbanner__info">
+		<div>
+			<div class="smartbanner__info--title">
+				Chess Win
+			</div>
+			<div class="smartbanner__info--rating">
+				<app-star *ngFor="let in of [0, 1, 2, 3, 4]; let i = index" [solid]="i >= 5"></app-star>
+			</div>
+			<div class="smartbanner__info--price">
+				FREE APP
+			</div>
+		</div>
+	</div>
+	<a [href]="url" class="smartbanner__button">
+		Install
+	</a>
+</div>

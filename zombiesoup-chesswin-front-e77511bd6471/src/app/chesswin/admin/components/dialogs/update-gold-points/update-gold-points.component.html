@@ -1,0 +1,8 @@
+<mat-dialog-content>
+	<h1>Update user gold coins</h1>
+	<input placeholder="Gold points" type="number" [(ngModel)]="dialogData.goldPoints" />
+	<div class="actions">
+		<button class="cancel-button" (click)="respondToRequest(false)">Cancel</button>
+		<button class="confirm-button" (click)="respondToRequest(true)">Confirm</button>
+	</div>
+</mat-dialog-content>

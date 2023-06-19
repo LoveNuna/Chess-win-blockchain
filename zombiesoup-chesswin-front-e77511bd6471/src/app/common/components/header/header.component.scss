@@ -1,0 +1,136 @@
+@import '../../../../assets/style/style.scss';
+
+.header {
+	padding: 0px 0px;
+	background-color: $dark-indigo;
+
+	.header-content {
+		display: flex;
+		justify-content: space-between;
+		padding: 10px 0px;
+		align-items: center;
+
+		.logo-part {
+			max-height: 57px;
+			a {
+				height: 100%;
+				.header-logo {
+					max-height: 55px;
+				}
+			}
+		}
+
+		.nav-list {
+			height: 100%;
+
+			@include mq(768px) {
+				display: none;
+			}
+
+			.nav-ul {
+				display: flex;
+				justify-content: flex-start;
+
+				.nav-link {
+					padding: 16px 24px;
+
+					a {
+						font-family: 'aileron-regular', sans-serif;
+						&:hover {
+							color: $sand;
+						}
+					}
+					.active {
+						color: $sand;
+					}
+				}
+			}
+		}
+
+		.languages-part {
+			padding: 10px 0px;
+
+			@include mq(768px) {
+				margin-right: 16px;
+			}
+
+			.dropdown-area {
+				position: relative;
+
+				.button-languages {
+					display: flex;
+					justify-content: space-between;
+					background-color: #1e2434;
+					border: none;
+					line-height: 21px;
+					height: 38px;
+					padding: 8px;
+					align-items: center;
+					width: 134px;
+
+					.language-icon {
+						margin-right: 8px;
+					}
+
+					.chevron-down-icon {
+						margin-left: 12px;
+					}
+				}
+
+				.dropdown-content {
+					display: flex;
+					flex-direction: column;
+					position: absolute;
+
+					.dropdown-item {
+						background-color: #1e2434;
+						width: 134px;
+						z-index: 999;
+
+						.button-dropdown {
+							width: 100%;
+							background-color: #1e2434;
+							border: transparent;
+							text-align: left;
+							border-radius: 0;
+							color: #fff;
+							padding: 8px;
+							cursor: pointer;
+
+							.language-icon {
+								margin-right: 8px;
+							}
+						}
+					}
+
+					.display-none {
+						display: none;
+					}
+				}
+			}
+		}
+
+		mat-icon {
+			display: none;
+			font-size: 40px;
+			color: #fff;
+			cursor: pointer;
+			width: unset;
+			height: unset;
+
+			@include mq(768px) {
+				display: inline-block;
+			}
+		}
+	}
+}
+
+.end-section {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.nav-active {
+	color: $sand !important;
+}

@@ -1,0 +1,26 @@
+<div class="gradient-background">
+	<div class="section-block how-to-section">
+		<div class="wide-wrapper how-to-wrapper">
+			<div class="title-area">
+				<div class="content-centered">
+					<h1 class="main-title text-gradient">
+						Info
+					</h1>
+				</div>
+			</div>
+
+			<div class="video-area">
+				<div class="video-container">
+					<div class="video-player-area">
+						<app-video-player [selectedVideoObject]="selectedVideoObject"></app-video-player>
+					</div>
+					<div class="suggested-videos-area">
+						<app-suggested-videos (changeVideoEmitter)="changeSelectedVideo($event)"
+							[upNextVideoObject]="upNextVideoObject" [suggestedVideos]="suggestedVideos">
+						</app-suggested-videos>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

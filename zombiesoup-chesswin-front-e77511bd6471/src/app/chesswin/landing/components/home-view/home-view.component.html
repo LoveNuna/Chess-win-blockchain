@@ -1,0 +1,105 @@
+<div class="gradient-background">
+	<div class="section-block presentation-section">
+		<div class="wrapper presentation-wrapper">
+			<img alt="chess-win-presentation-image" class="presentation-image"
+				src="../../../../../assets/images/presentation-image.png" />
+			<div class="content-centered">
+				<h1 class="main-heading text-gradient">
+					{{ languageLabels?.mainTitle }}
+				</h1>
+			</div>
+			<div class="login-area">
+				<form (ngSubmit)="emitLoginForm()" [formGroup]="loginForm" class="login-form" novalidate>
+					<div class="form-group">
+						<span class="label">E-Mail Address</span>
+						<input autocomplete="email" name="email" style="display: none" type="text" />
+						<input class="chess-input" formControlName="email" name="email" placeholder="chessf@gmail.com"
+							tabindex="1" type="email" />
+						<span *ngIf="submitted && emailError" class="error-message">Please enter a valid email
+							address!</span>
+					</div>
+
+					<div class="form-group">
+						<span class="label">Password</span>
+						<input autocomplete="new-password" name="password" style="display: none" type="password" />
+						<input class="chess-input" formControlName="password" name="password" placeholder="Password"
+							tabindex="2" type="password" />
+						<span *ngIf="submitted && passwordError" class="error-message">Please enter password!</span>
+					</div>
+
+					<span class="server-error">{{ serverError }}</span>
+
+					<button [disabled]="requesting" class="button button-sand-gradient" tabindex="3" type="submit">
+						<p *ngIf="!requesting; else loginLoading">Log in</p>
+					</button>
+				</form>
+
+				<div class="download-app-area">
+					<div class="content-centered">
+						<p class="paragraph text-apricot text-uppercase">
+							DOWNLOAD THE APP AND SIGN IN
+						</p>
+					</div>
+
+					<div class="action-buttons">
+						<a href="https://apps.apple.com/us/app/chess-win/id1487134837" rel="noopener" target="_blank">
+							<img alt="available-on-the-app-store-image"
+								src="../../../../../assets/images/available-on-the-app-store.png" />
+						</a>
+						<a href="https://chesswin-front.s3.amazonaws.com/assets/downloads/chesswin-latest.apk"
+							rel="noopener" target="_blank">
+							<img alt="get-it-on-google-play-image"
+								src="../../../../../assets/images/get-it-on-google-play.png" />
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="wrapper are-you-ready-wrapper">
+			<h1 class="main-title text-light-pink">
+				{{ languageLabels?.descriptionTitle }}
+			</h1>
+
+			<div class="content-box">
+				<p class="paragraph text-light-pink">
+					{{ languageLabels?.descriptionParagraph1 }}
+				</p>
+
+				<p class="paragraph text-sand">
+					{{ languageLabels?.descriptionParagraph2 }}
+				</p>
+
+				<p class="paragraph text-light-pink">
+					{{ languageLabels?.descriptionParagraph3 }}
+				</p>
+
+				<p class="paragraph text-light-pink">
+					{{ languageLabels?.descriptionParagraph4 }}
+				</p>
+
+				<p class="paragraph text-light-pink">
+					{{ languageLabels?.descriptionParagraph5 }}
+				</p>
+
+				<p class="paragraph text-light-pink">
+					{{ languageLabels?.descriptionParagraph6 }}
+				</p>
+
+				<p class="paragraph text-light-pink">
+					{{ languageLabels?.descriptionParagraph7.paragraph1 }}
+					{{ languageLabels?.descriptionParagraph7.coloredParagraph1 }}
+					{{ languageLabels?.descriptionParagraph7.paragraph2 }}
+					<a class="link text-dodger-blue" href="mailto:support@chess-win.com">
+						{{ languageLabels?.descriptionParagraph7.coloredParagraph2 }}
+					</a>
+					{{ languageLabels?.descriptionParagraph7.paragraph3 }}
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<ng-template #loginLoading>
+	<app-loading [size]="25"></app-loading>
+</ng-template>

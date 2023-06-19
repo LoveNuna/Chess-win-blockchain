@@ -1,0 +1,86 @@
+<div class="game-container">
+	<div class="game-log">
+		<p class="body-text" *ngIf="gameHistory | async as gameHistoryArray">
+			<span
+				*ngFor="let move of gameHistoryArray; let i = index">{{ i + 1 + '. ' + move.from + ' ' + move.to + ' ' }}</span>
+		</p>
+	</div>
+
+	<div class="profile">
+		<img *ngIf="game.opponent.profile_picture; else defaultUserImage" class="profile__image"
+			[src]="game.opponent.profile_picture" alt="user-image" width="74px" height="74px" />
+
+		<div class="profile__info">
+			<p class="paragraph profile__username">
+				<img *ngIf="game.opponent.country" class="profile__user-nationality-flag"
+					src="../../../../../../assets/images/flags/{{ game.opponent.country }}.png"
+					alt="user-nationality-flag" width="20px" height="20px" />{{ game.opponent.name }}
+			</p>
+			<div class="pieces-taken">
+				<span *ngFor="let pieceTaken of userPiecesTaken | async">{{ pieceTaken | json }}</span>
+			</div>
+		</div>
+
+		<div *ngIf="opponentTime | async as opponentTime" class="timer"
+			[ngClass]="{ 'timer--low': opponentTime.minutes === 0 && opponentTime.seconds < 11 }">
+			<p class="paragraph">
+				<img src="../../../../../../assets/icons/{{
+            opponentTime.minutes === 0 && opponentTime.seconds < 11 ? 'timer-icon-red' : 'timer-icon'
+          }}.png" alt="timer-icon" width="18px" height="18px" />
+				{{ opponentTime.minutes + ':' + (opponentTime.seconds < 10 ? '0' + opponentTime.seconds : opponentTime.seconds) }}
+			</p>
+		</div>
+	</div>
+
+	<div class="game-engine">
+		<app-game-engine [game]="game" [user]="game.user" [lastMove]="lastMove" (newMoveEmitter)="emitNewMove($event)">
+		</app-game-engine>
+	</div>
+
+	<div class="profile">
+		<img *ngIf="game.user['custom:profile_picture']; else defaultUserImage" class="profile__image"
+			[src]="game.user['custom:profile_picture']" alt="user-image" width="74px" height="74px" />
+
+		<div class="profile__info">
+			<p class="paragraph profile__username">
+				<img *ngIf="game.user.country" class="profile__user-nationality-flag"
+					src="../../../../../../assets/images/flags/{{ game.user.country }}.png" alt="user-nationality-flag"
+					width="20px" height="20px" />{{ game.user.name }}
+			</p>
+			<div class="pieces-taken">
+				<span *ngFor="let pieceTaken of opponentPiecesTaken | async">{{ pieceTaken | json }}</span>
+			</div>
+		</div>
+
+		<div *ngIf="userTime | async as userTime" class="timer"
+			[ngClass]="{ 'timer--low': userTime.minutes === 0 && userTime.seconds < 11 }">
+			<p class="paragraph">
+				<img [src]="
+            '../../../../../../assets/icons/' + (userTime.minutes === 0 && userTime.seconds < 11 ? 'timer-icon-red' : 'timer-icon') + '.png'
+          " alt="timer-icon" width="18px" height="18px" />
+				{{ userTime.minutes + ':' + (userTime.seconds < 10 ? '0' + userTime.seconds : userTime.seconds) }}
+			</p>
+		</div>
+	</div>
+
+	<div class="game-actions">
+		<button type="button" class="game-actions__button" (click)="emitDrawOffer()">
+			<img src="../../../../../../assets/icons/offer-draw-icon.png" alt="offer-draw-icon" width="18px" />
+			<p>Offer a Draw</p>
+		</button>
+		<button type="button" class="game-actions__button" (click)="getLastMove()"
+			[ngClass]="{ 'game-actions__button--active': lastMoveActive }">
+			<img src="../../../../../../assets/icons/last-move-icon.png" alt="last-move-icon" width="18px" />
+			<p>Last Move</p>
+		</button>
+		<button type="button" class="game-actions__button" (click)="emitAbandonGame()">
+			<img src="../../../../../../assets/icons/abandon-game-icon.png" alt="abandon-game-icon" width="18px" />
+			<p>Abandon Game</p>
+		</button>
+	</div>
+</div>
+
+<ng-template #defaultUserImage>
+	<img class="profile__image" src="../../../../../../assets/images/dashboard/default-user-image.png"
+		alt="default-user-image" width="74px" />
+</ng-template>

@@ -1,0 +1,40 @@
+@import './variables.scss';
+
+// media query
+@mixin mq($args) {
+  @media screen and (max-width: $args) {
+    @content;
+  }
+}
+
+// grid
+@mixin grid($elements-per-row, $column-gap, $row-gap) {
+  display: grid;
+  grid-template-columns: repeat($elements-per-row, 1fr);
+  grid-column-gap: $column-gap;
+  grid-row-gap: $row-gap;
+}
+
+// scrollbar
+@mixin custom-scrollbar {
+  overscroll-behavior: contain;
+
+  &::-webkit-scrollbar-track {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    background-image: linear-gradient(#0b1b32, #051225);
+  }
+
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    background-image: linear-gradient(#0b1b32, #051225);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 2.5px;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    background-color: rgb(55, 67, 95);
+  }
+}

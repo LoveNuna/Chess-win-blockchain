@@ -1,0 +1,1 @@
+export const UPDATE_PLAYER_STATUS_ON = "UPDATE players p SET p.status = 1 WHERE p.id = ?"

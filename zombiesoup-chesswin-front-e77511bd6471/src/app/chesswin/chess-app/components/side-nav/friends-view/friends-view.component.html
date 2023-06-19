@@ -1,0 +1,59 @@
+<div class="friends-container" *ngIf="friends">
+	<p class="body-text friends-container__title">
+		<span class="label" (click)="showFriends = !showFriends"> Friends ({{ friends?.length }}) </span>
+
+		<span class="icon-container">
+			<mat-icon [@roll]="rollIcon ? 'true' : 'false'" (click)="emitRefreshFriends()">refresh</mat-icon>
+			<img [ngClass]="{ 'rotate-left': !showFriends }" (click)="showFriends = !showFriends"
+				src="../../../../../../assets/icons/circle-arrow-down-icon.png" alt="arrow-down-icon" width="17px"
+				height="17px" />
+		</span>
+	</p>
+</div>
+
+<div *ngIf="friends; else loading">
+	<div *ngIf="friends.length; else noFriends">
+		<div class="friends" *ngIf="showFriends">
+			<div class="friend" *ngFor="let friend of friends">
+				<div class="friend__image-container">
+					<img class="friend__image" *ngIf="friend.profile_picture; else userDefaultImage"
+						[src]="friend.profile_picture" alt="friend-profile-image" width="42px" height="42px" />
+					<div class="friend__status" [ngClass]="{
+              'friend__status--online': friend.status === statusType.online,
+              'friend__status--away': friend.status === statusType.away,
+              'friend__status--busy': friend.status === 3,
+              'friend__status--offline': friend.status === statusType.offline
+            }"></div>
+				</div>
+
+				<div class="friend__info">
+					<p class="body-text friend__name">{{ friend.name }}</p>
+
+					<div class="friend__actions">
+						<img *ngIf="friend.country" src="../../../../../../assets/images/flags/{{ friend.country }}.png"
+							alt="friend-country-flag" width="14px" height="14px" />
+						<button *ngIf="!friend.playing && friend.status !== statusType.offline" type="button"
+							class="friend__challenge-button" (click)="emitChallenge(friend)">
+							Challenge
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<ng-template #loading>
+	<!-- <p class="body-text loading">Loading...</p> -->
+</ng-template>
+
+<ng-template #noFriends>
+	<!-- <div class="button-wrapper">
+    <button type="button" class="add-friend-button">Add a friend</button>
+  </div> -->
+</ng-template>
+
+<ng-template #userDefaultImage>
+	<img class="friend__image" src="../../../../../../assets/images/dashboard/default-user-image.png"
+		alt="default-friend-profile-image" width="43px" height="42px" />
+</ng-template>

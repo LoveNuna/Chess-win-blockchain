@@ -1,0 +1,109 @@
+<mat-dialog-content>
+	<div class="challenge-overview" *ngIf="dialogData && dialogData.userId">
+		<div class="profile">
+			<img *ngIf="dialogData.userImage; else defaultUserImage" class="profile__image" [src]="dialogData.userImage"
+				width="40px" height="40px" />
+		</div>
+		<p class="versus">VS</p>
+		<div class="profile">
+			<img *ngIf="dialogData.opponentImage; else defaultUserImage" class="profile__image"
+				[src]="dialogData.opponentImage" width="40px" height="40px" />
+			<img *ngIf="dialogData.opponentCountry" class="profile__country-image"
+				src="../../../../../../assets/images/flags/{{ dialogData.opponentCountry }}.png" width="18px"
+				height="18px" />
+			<div class="profile__info">
+				<p class="profile__name">{{ dialogData.opponentName }}</p>
+				<p class="profile__nickname">{{ dialogData.opponentNickname }}</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="challenge-type">
+		<p class="label">Play with</p>
+
+		<div class="challenge-type__actions">
+			<button type="button" class="challenge-type__button"
+				[ngClass]="{ 'challenge-type__button--standard': gameChallengeType === challengeType.standard }"
+				(click)="gameChallengeType = challengeType.standard">
+				Play Standard
+			</button>
+			<button type="button" class="challenge-type__button"
+				[ngClass]="{ 'challenge-type__button--gold': gameChallengeType === challengeType.gold }"
+				(click)="gameChallengeType = challengeType.gold">
+				Play Gold
+			</button>
+		</div>
+	</div>
+
+	<div class="challenge-details">
+		<div class="challenge-ammount" *ngIf="gameChallengeType === challengeType.gold">
+			<p class="label">Ammount</p>
+
+			<div class="challenge-ammount-selector-container">
+				<button type="button" (click)="handleGameChallengeAmmountSelector()">
+					<img class="coin-icon" [src]="
+              gameChallengeType === challengeType.gold
+                ? '../../../../../assets/icons/gold-coin-icon.png'
+                : '../../../../../assets/icons/silver-coin-icon.png'
+            " width="20px" height="20px" />
+					{{ gameChallengeAmmount }} Gold
+					<img class="drop-icon" src="../../../../../../assets/icons/circle-arrow-down-icon.png" width="20px"
+						height="20px" />
+				</button>
+
+				<mat-select #gameChallengeAmmountSelector class="challenge-ammount__selector"
+					(selectionChange)="updateGameChallengeCoins($event)">
+					<mat-option *ngFor="let coins of gameChallengeCoins" [value]="coins">{{ coins }}</mat-option>
+				</mat-select>
+			</div>
+		</div>
+
+		<div class="challenge-time">
+			<p class="label">Move time</p>
+
+			<div class="challenge-time-selector-container">
+				<div class="challenge-time-selector-mask">
+					<button type="button" (click)="handleGameChallengeTimerSelector($event)">
+						<img class="time-icon" src="../../../../../../assets/icons/timer-icon.png" width="12px"
+							height="12px" />
+						{{ gameChallengeTime }}
+						<img class="drop-icon" src="../../../../../../assets/icons/circle-arrow-down-icon.png"
+							width="20px" height="20px" />
+					</button>
+
+					<mat-select #gameChallengeTimerSelector class="challenge-time__selector"
+						(selectionChange)="updateGameChallengeTime($event)">
+						<mat-option *ngFor="let time of gameTimeTypes" [value]="time.type">{{ time.value }}</mat-option>
+					</mat-select>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="fair-play">
+		<p class="label">Fair play</p>
+
+		<div class="fair-play__actions">
+			<button type="button" class="fair-play__button" [ngClass]="{ 'fair-play__button--active': gameFairPlay }"
+				(click)="gameFairPlay = true">
+				Enabled
+			</button>
+			<button type="button" class="fair-play__button" [ngClass]="{ 'fair-play__button--active': !gameFairPlay }"
+				(click)="gameFairPlay = false">
+				Disabled
+			</button>
+		</div>
+	</div>
+
+	<button type="button" class="challenge-button" [ngClass]="{
+      'challenge-button--standard': gameChallengeType === challengeType.standard,
+      'challenge-button--gold': gameChallengeType === challengeType.gold
+    }" (click)="sendChallenge()">
+		Challenge
+	</button>
+</mat-dialog-content>
+
+<ng-template #defaultUserImage>
+	<img class="profile__image" src="../../../../../../assets/images/dashboard/default-user-image.png" width="40px"
+		height="40px" />
+</ng-template>

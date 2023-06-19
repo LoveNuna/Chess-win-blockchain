@@ -1,0 +1,294 @@
+@import "../../../../../assets/style/style.scss";
+
+.packages-container {
+	@include custom-scrollbar;
+
+	.center {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-bottom: 20px;
+		flex-direction: column;
+		padding: 0 20px;
+		padding-top: 40px;
+
+		img {
+			width: 250px;
+			margin-bottom: 20px;
+		}
+	}
+
+	.div {
+		width: 100%;
+		max-width: 366px;
+		height: 52px;
+		background: -webkit-linear-gradient(#ffc777, rgba(236, 190, 125, 0.33));
+		border-radius: 8px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		button {
+			width: 100%;
+			max-width: 360px;
+			height: 48px;
+			background: -webkit-linear-gradient(#ffc777, rgba(236, 190, 125, 0.33));
+			border: 2px solid #09182f;
+			border-radius: 8px;
+			outline: none;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+
+			h5 {
+				font-size: 30px;
+				border-right: 2px solid #09182f;
+				padding-left: 10px;
+				padding-right: 5px;
+			}
+
+			h6 {
+				text-transform: uppercase;
+				text-align: left;
+				font-size: 16px;
+				margin-left: 10px;
+				letter-spacing: 4px;
+			}
+
+			p {
+				text-transform: uppercase;
+				text-align: left;
+				margin-left: 10px;
+				font-size: 10px;
+			}
+		}
+	}
+
+	width: 100%;
+	min-height: 65vh;
+	display: flex;
+	flex-direction: column;
+	padding: 0 0 80px 0;
+}
+
+.header-description {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.packages-title {
+	font-family: "aileron-black", sans-serif;
+	font-size: 32px;
+	background: -webkit-linear-gradient(rgb(255, 199, 119), rgba(236, 190, 125, 0.33));
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	margin-bottom: 60px;
+}
+
+.packages-description {
+	font-size: 17px;
+	color: #fff;
+	margin-bottom: 32px;
+
+	@include mq(992px) {
+		text-align: center;
+	}
+
+	span {
+		color: rgb(86, 164, 255);
+	}
+}
+
+.packages {
+	width: 100%;
+
+	@include grid(2, 24px, 24px);
+
+	@include mq(1024px) {
+		@include grid(1, 24px, 24px);
+	}
+
+	.package {
+		width: 100%;
+		padding: 50px 16px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		background-size: contain;
+		background-position: center;
+		background-repeat: no-repeat;
+
+		@include mq(576px) {
+			padding: 30px 16px;
+		}
+
+		&__name {
+			font-family: "aileron-regular", sans-serif;
+			font-size: 20px;
+			color: #fff;
+			margin-bottom: 8px;
+
+			@include mq(576px) {
+				font-size: 14px;
+			}
+		}
+
+		&__fee {
+			font-family: "aileron-regular", sans-serif;
+			font-size: 18px;
+			color: red;
+			margin-top: 10px;
+			margin-bottom: 8px;
+
+			@include mq(576px) {
+				font-size: 14px;
+			}
+		}
+
+		&__cost {
+			font-family: "aileron-black", sans-serif;
+			font-size: 24px;
+			margin-bottom: 16px;
+			background: -webkit-linear-gradient(rgb(230, 192, 114), rgb(230, 170, 46));
+			background-clip: text;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+
+			@include mq(576px) {
+				font-size: 16px;
+				margin-bottom: 8px;
+			}
+		}
+
+		&__buy-button {
+			width: 230px;
+			padding: 16px;
+			border-radius: 25px;
+			background-image: linear-gradient(rgb(169, 210, 173), rgb(98, 193, 97));
+			box-shadow: 2px 5px 15px 0 rgb(2, 56, 2);
+			font-family: "aileron-black", sans-serif;
+			font-size: 18px;
+			color: #fff;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			cursor: pointer;
+			outline: none;
+
+			@include mq(576px) {
+				width: unset;
+				padding: 8px 16px;
+				font-size: 14px;
+			}
+
+			&--active {
+				background-image: linear-gradient($sky-blue, $dodger-blue);
+				box-shadow: 2px 5px 15px 0 rgb(12, 2, 56);
+			}
+		}
+
+		&--pawn {
+			background-image: url("../../../../../assets/images/packages/packages-pawn-bg.png");
+		}
+
+		&--rook {
+			background-image: url("../../../../../assets/images/packages/packages-rook-bg.png");
+		}
+
+		&--horse {
+			background-image: url("../../../../../assets/images/packages/packages-knight-bg.png");
+		}
+
+		&--officer {
+			background-image: url("../../../../../assets/images/packages/packages-bishop-bg.png");
+		}
+
+		&--queen {
+			background-image: url("../../../../../assets/images/packages/packages-queen-bg.png");
+		}
+
+		&--king {
+			background-image: url("../../../../../assets/images/packages/packages-king-bg.png");
+		}
+	}
+}
+
+.payment-methods {
+	font-size: 16px;
+	color: white;
+	margin-top: 40px;
+	margin: 0 auto;
+	margin-top: 40px;
+	margin-bottom: -20px;
+
+	@include mq(576px) {
+		text-align: center;
+	}
+}
+
+.buttons {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+
+	@include mq(576px) {
+		flex-direction: column;
+		align-items: center;
+	}
+}
+.paypal-container {
+	width: 100%;
+	padding: 42px 24px 24px 24px;
+	text-align: center;
+
+	@include mq(992px) {
+		width: 65%;
+	}
+
+	@include mq(768px) {
+		width: 90%;
+	}
+
+	@include mq(576px) {
+		width: 80%;
+		padding: 0;
+		margin: 40px 0 -5px 0;
+	}
+
+	button {
+		width: 100%;
+		height: 100%;
+		border-radius: 4px;
+		font-size: 16px;
+		background: #e0e0e0;
+		box-shadow: 2px 5px 15px 0 #0c0238;
+		font-family: "aileron-black", sans-serif;
+		font-size: 16px;
+		color: #4f4f4f;
+		cursor: pointer;
+		outline: none;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		.c-card {
+			width: 35px;
+			margin-right: 4px;
+		}
+
+		@include mq(576px) {
+			height: 45px;
+			font-size: 14px;
+			margin-top: -20px;
+			margin-bottom: 0;
+		}
+
+		@include mq(455px) {
+			height: 35px;
+		}
+	}
+}

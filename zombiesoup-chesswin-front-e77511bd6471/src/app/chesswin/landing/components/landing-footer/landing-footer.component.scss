@@ -1,0 +1,480 @@
+@import "../../../../../assets/style/style.scss";
+
+.footer-section {
+	background-color: $midnight;
+
+	.footer-wrapper {
+		display: flex;
+		justify-content: space-between;
+		padding: 48px 0px;
+
+		@include mq(768px) {
+			flex-direction: column-reverse;
+		}
+
+		.info-area {
+			display: flex;
+			flex-direction: column;
+
+			@include mq(768px) {
+				display: inline;
+				width: 310px;
+				position: absolute;
+				bottom: 28px;
+				left: 38px;
+			}
+
+			@include mq(576px) {
+				position: unset;
+				width: unset;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			p,
+			a {
+				margin: 16px 0;
+			}
+
+			.small-text {
+				@include mq(768px) {
+					display: none;
+				}
+			}
+
+			a {
+				@include mq(768px) {
+					display: none;
+				}
+			}
+
+			.logo-area {
+				display: flex;
+				align-items: center;
+
+				@include mq(768px) {
+					display: none;
+				}
+
+				.footer-logo {
+					max-height: 32px;
+				}
+
+				.small-separator {
+					width: 1px;
+					height: 20px;
+					background-color: #35445a;
+					margin-left: 12px;
+					margin-right: 12px;
+				}
+			}
+		}
+
+		.image-area {
+			position: relative;
+			padding-right: 10px;
+
+			@include mq(1080px) {
+				display: none;
+			}
+
+			.secure-payments {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+				position: absolute;
+				top: -16px;
+				left: 14px;
+
+				p {
+					text-transform: uppercase;
+					background: #030a12;
+					color: white;
+					font-size: 14px;
+					margin: 0;
+					padding: 0 10px;
+					font-weight: bold;
+				}
+			}
+
+			.paypal {
+				width: 100px;
+				height: 30px;
+				background-color: #ffc339;
+				border-radius: 8px;
+
+				img {
+					margin-left: 20px;
+					margin-right: 0;
+					width: 78px;
+					height: 40px;
+					margin-top: -5px;
+				}
+			}
+
+			.images-flow {
+				display: flex;
+				padding: 10px;
+				border: 2px solid lightskyblue;
+				padding-top: 20px;
+			}
+
+			h4 {
+				color: white;
+				text-align: left;
+				font-family: "aileron-bold", sans-serif;
+				font-size: 18px;
+				line-height: 21px;
+				margin-bottom: 24px;
+			}
+
+			img {
+				width: 100%;
+				max-width: 70px;
+				height: 100%;
+				max-height: 80px;
+				margin-right: 8px;
+				object-fit: contain;
+				border-radius: 15px;
+
+				@include mq(576px) {
+					display: flex;
+					flex-direction: column;
+					margin-bottom: 20px;
+				}
+
+				:last-child {
+					margin: 0;
+				}
+			}
+			.a-express-logo {
+				border-radius: 0;
+				height: 42px;
+				width: 42px;
+			}
+
+			.discover-network {
+				background: white;
+				height: 42px;
+				border-radius: 15px;
+
+				img {
+					width: 70px;
+					margin-right: 0;
+					height: 50px;
+				}
+			}
+
+			@include mq(768px) {
+				position: absolute;
+				left: 35px;
+			}
+
+			@include mq(576px) {
+				position: absolute;
+				bottom: 0.5%;
+				left: 35px;
+			}
+
+			p {
+				font-family: "aileron-regular", sans-serif;
+				font-size: 13px;
+				line-height: 16px;
+				color: #37435f;
+				line-height: 1.4;
+				margin-top: 15px;
+				margin-right: 10px;
+
+				span {
+					font-weight: bold;
+					color: white;
+				}
+
+				@include mq(768px) {
+					width: 100%;
+					max-width: 350px;
+				}
+
+				@include mq(576px) {
+					width: 100%;
+					max-width: 200px;
+				}
+
+				@include mq(400px) {
+					width: 100%;
+					max-width: 150px;
+				}
+			}
+		}
+
+		.links-area {
+			display: flex;
+
+			@include mq(768px) {
+				@include grid(2, 32px, 32px);
+
+				padding: 0 24px;
+			}
+
+			.right {
+				margin-left: 30px;
+
+				@include mq(576px) {
+					margin-left: unset;
+				}
+			}
+
+			.link-item {
+				display: flex;
+				flex-direction: column;
+				padding-right: 64px;
+
+				@include mq(992px) {
+					padding-right: 35px;
+				}
+
+				@include mq(768px) {
+					padding-right: unset;
+				}
+
+				&:last-child {
+					padding-right: 0;
+				}
+
+				.menu-title {
+					font-family: "aileron-bold", sans-serif;
+					font-size: 18px;
+					line-height: 21px;
+					margin-bottom: 24px;
+				}
+
+				.link {
+					font-family: "aileron-regular", sans-serif;
+					color: #35445a;
+					font-size: 16px;
+					line-height: 20px;
+					margin-bottom: 20px;
+
+					&:hover {
+						color: $sand;
+					}
+				}
+
+				.social-area {
+					display: flex;
+
+					.social-link {
+						margin-right: 16px;
+
+						&:last-child {
+							margin-right: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.body-text {
+	font-family: "aileron-regular", sans-serif;
+	color: #35445a;
+}
+
+.text-white {
+	font-family: "aileron-regular", sans-serif;
+	color: #fff;
+}
+
+.small-text {
+	font-family: "aileron-regular", sans-serif;
+	font-size: 13px;
+	line-height: 16px;
+	color: #37435f;
+	margin-bottom: 8px !important;
+}
+
+.address {
+	margin: 0 !important;
+}
+
+.nav-active {
+	color: $sand !important;
+}
+
+.inline-footer {
+	display: none !important;
+	width: 100%;
+	flex-direction: column;
+	align-items: flex-start;
+
+	p,
+	a {
+		margin: 8px 0;
+	}
+
+	@include mq(768px) {
+		display: flex !important;
+	}
+
+	.logo-small-text {
+		color: #fff;
+		font-size: 13px !important;
+	}
+}
+
+.tablet-area {
+	display: none;
+	position: relative;
+
+	@include mq(1080px) {
+		display: block;
+		margin-top: 25px;
+	}
+
+	.secure-payments {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		position: absolute;
+		top: -24px;
+		left: 14px;
+
+		@include mq(576px) {
+			height: 20px;
+			top: -10px;
+			left: 10%;
+		}
+
+		p {
+			text-transform: uppercase;
+			background: #030a12;
+			color: white;
+			font-size: 14px;
+			margin: 0;
+			padding: 0 10px;
+			font-weight: bold;
+
+			@include mq(576px) {
+				font-size: 12px;
+				padding: 0;
+				padding-left: 6px;
+			}
+		}
+	}
+
+	.paypal {
+		width: 100px;
+		height: 30px;
+		background-color: #ffc339;
+		border-radius: 8px;
+
+		img {
+			margin-left: 20px;
+			width: 78px;
+			height: 40px;
+			margin-top: -5px;
+
+			@include mq(576px) {
+				margin-left: 8px;
+			}
+		}
+	}
+
+	.images-flow {
+		display: flex;
+		padding: 10px;
+		border: 2px solid lightskyblue;
+		padding-top: 20px;
+	}
+
+	h4 {
+		color: white;
+		text-align: left;
+		font-family: "aileron-bold", sans-serif;
+		font-size: 18px;
+		line-height: 21px;
+		margin-bottom: 24px;
+	}
+
+	img {
+		width: 100%;
+		max-width: 70px;
+		height: 100%;
+		max-height: 80px;
+		margin-right: 8px;
+		object-fit: contain;
+		border-radius: 15px;
+
+		@include mq(576px) {
+			display: flex;
+			flex-direction: column;
+			// margin-bottom: 20px;
+		}
+
+		:last-child {
+			margin: 0;
+		}
+	}
+	.a-express-logo {
+		border-radius: 0;
+		height: 42px;
+		width: 42px;
+	}
+
+	.discover-network {
+		background: white;
+		height: 42px;
+		border-radius: 15px;
+
+		img {
+			width: 70px;
+			margin-right: 0;
+			height: 50px;
+		}
+	}
+
+	@include mq(768px) {
+		// position: absolute;
+		// left: 35px;
+	}
+
+	@include mq(576px) {
+		// position: absolute;
+		// bottom: 0.5%;
+		// left: 35px;
+	}
+
+	p {
+		font-family: "aileron-regular", sans-serif;
+		font-size: 13px;
+		line-height: 16px;
+		color: #37435f;
+		line-height: 1.4;
+		margin-top: 15px;
+		margin-right: 10px;
+
+		span {
+			font-weight: bold;
+			color: white;
+		}
+
+		@include mq(768px) {
+			width: 100%;
+			max-width: 350px;
+		}
+
+		@include mq(576px) {
+			width: 100%;
+			max-width: 200px;
+		}
+
+		@include mq(400px) {
+			width: 100%;
+			max-width: 150px;
+		}
+	}
+}

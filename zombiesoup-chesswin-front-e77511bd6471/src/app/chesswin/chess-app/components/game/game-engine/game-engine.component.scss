@@ -1,0 +1,39 @@
+.board {
+	background-image: url("../../../../../../assets/images/dashboard/game/game-bg.png");
+}
+
+.hovering-piece {
+	z-index: 9999 !important;
+}
+
+#board1::ng-deep {
+	.board-b72b1 {
+		border: none;
+		background: url("../../../../../../assets/images/dashboard/game/board-bg.png") no-repeat;
+		background-size: cover;
+	}
+
+	.white-1e1d7 {
+		background-color: rgba(255, 250, 244, 0.4);
+	}
+
+	.black-3c85d {
+		background-color: darken(rgba(139, 69, 19, 0.6), 10%);
+	}
+
+	.highlight1-32417 {
+		box-shadow: none;
+	}
+
+	.highlight2-9c5d2 {
+		box-shadow: none;
+	}
+
+	.highlight-white {
+		box-shadow: inset 3px 3px 0 rgb(230, 192, 114), inset -3px -3px 0 rgb(230, 192, 114);
+	}
+
+	.highlight-black {
+		box-shadow: inset 3px 3px 0 rgb(25, 131, 255), inset -3px -3px 0 rgb(25, 131, 255);
+	}
+}

@@ -1,0 +1,11 @@
+<div class="container">
+	<app-stats-view [stats]="goldCoinsData"></app-stats-view>
+
+	<app-users-gold-coins-list-view [users]="usersToShow" [requesting]="requesting"
+		(filterEmitter)="filterUsers($event)" (userEmitter)="navigateToUser($event)"></app-users-gold-coins-list-view>
+
+	<div class="paginator-container">
+		<app-paginator *ngIf="users && users.length" [page]="1" [total]="users.length" [perPage]="usersPerPage"
+			[pagesToShow]="pagesToShow" (pageChangedEmitter)="filterUsersPerPage($event)"></app-paginator>
+	</div>
+</div>

@@ -1,0 +1,11 @@
+{
+  "name": "check-if-user-exist",
+  "description": "Lambda function to check if user already exists",
+  "version": "1.0.0",
+  "dependencies": {
+    "@types/aws-sdk": "^2.7.0",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.2.4",
+    "webpack": "^4.28.4"
+  }
+}

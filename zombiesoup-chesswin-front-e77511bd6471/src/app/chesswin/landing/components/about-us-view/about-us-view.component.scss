@@ -1,0 +1,87 @@
+@import "../../../../../assets/style/style.scss";
+
+.gradient-background {
+	background-image: linear-gradient($dark-indigo-two, $midnight-two);
+
+	.fair-play-section {
+		position: relative;
+		background: url(../../../../../assets/images/chess-background.png) no-repeat;
+		box-sizing: border-box;
+		background-size: 100%;
+
+		.fair-play-wrapper {
+			padding: 42px 0px 80px;
+
+			.title-area {
+				margin-bottom: 80px;
+
+				.text-gradient {
+					background: linear-gradient(to right, rgba(236, 190, 125, 0.33) 0%, #ffc777 60%);
+					background-clip: text;
+					-webkit-background-clip: text;
+					-webkit-text-fill-color: transparent;
+				}
+			}
+
+			.content-area {
+				.presentation-area {
+					display: flex;
+					justify-content: space-between;
+
+					@include mq(992px) {
+						flex-direction: column;
+					}
+
+					.presentation-image {
+						max-width: 600px;
+						width: 50%;
+
+						@include mq(992px) {
+							flex-direction: column;
+							margin: 0 auto !important;
+							width: 100%;
+						}
+
+						img {
+							width: 100%;
+							border-radius: 6px;
+						}
+					}
+
+					.presentation-text {
+						max-width: 550px;
+						width: 46%;
+
+						@include mq(992px) {
+							width: 100%;
+							max-width: unset;
+							margin-top: 48px;
+						}
+
+						.heading1 {
+							font-family: "aileron-heavy", sans-serif;
+							margin-bottom: 24px;
+						}
+
+						.body-text {
+							margin-bottom: 24px;
+						}
+					}
+				}
+
+				.description-area {
+					margin-top: 70px;
+
+					.heading1 {
+						font-family: "aileron-heavy", sans-serif;
+						margin-bottom: 32px;
+					}
+
+					.body-text {
+						margin-bottom: 24px;
+					}
+				}
+			}
+		}
+	}
+}

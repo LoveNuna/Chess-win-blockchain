@@ -1,0 +1,64 @@
+<div class="wrapper">
+	<div class="packages-container">
+		<div class="center">
+			<img src="../../../../../../assets/images/logo123.png" alt="" />
+
+			<div class="div">
+				<button (click)="navigateToCash()">
+					<h5>
+						$
+					</h5>
+					<div>
+						<h6>
+							Withdraw
+						</h6>
+						<p>Convert your gold coin in cash money</p>
+					</div>
+				</button>
+			</div>
+		</div>
+
+		<p class="paragraph packages-description">
+			Here you can buy GOLD COIN to play chess in CHESSWIN, and also you can
+			convert your GOLD COIN in real Money
+		</p>
+
+		<p class="paragraph packages-description" style="margin-top: -15px;">
+			MINIMUM REQUEST FOR WITHDRAW OF GOLD COIN IS 20.00
+		</p>
+
+		<div class="packages">
+			<div class="package" *ngFor="let package of packages"
+				[ngStyle]="{ 'background-image': 'url(' + package.image + ')' }">
+				<p class="package__name">{{ package.name }}</p>
+				<p class="package__cost">{{ package.coins }} Gold Coins</p>
+				<button type="button" class="package__buy-button" [ngClass]="{
+						'package__buy-button--active': selectedPackage?.id === package.id
+					}" (click)="selectPackage(package)">
+					Buy {{ package.price }}$ now
+				</button>
+				<p class="package__fee">+ transaction fee {{ package.fee_percent }}%
+					({{ package.price * package.fee_percent / 100 }}$)
+				</p>
+			</div>
+		</div>
+
+		<h6 class="payment-methods">Choose your payment method</h6>
+		<div class="buttons">
+			<div id="paypalContainer" class="paypal-container">
+				<div #paypalButton></div>
+			</div>
+
+			<!-- <div id="paypalContainer" class="paypal-container">
+				<button #CCButton (click)="navigateToCreditCard()">
+					<img
+						src="../../../../../assets/images/c-card.png"
+						alt=""
+						class="c-card"
+					/>
+					Credit Card
+				</button>
+			</div> -->
+		</div>
+	</div>
+</div>

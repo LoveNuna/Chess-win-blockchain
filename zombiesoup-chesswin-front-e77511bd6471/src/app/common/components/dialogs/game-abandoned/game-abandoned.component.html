@@ -1,0 +1,10 @@
+<mat-dialog-content>
+	<h1>Opponent abandoned game</h1>
+	<p>
+		Your opponent abandoned the game. You are the winner! You won ${{ dialogData.winnerPoints }}! Commission:
+		{{ dialogData.commission }}
+	</p>
+	<div class="actions">
+		<button (click)="respondToRequest()">OK</button>
+	</div>
+</mat-dialog-content>

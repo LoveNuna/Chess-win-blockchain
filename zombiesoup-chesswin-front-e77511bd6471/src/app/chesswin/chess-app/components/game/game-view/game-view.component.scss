@@ -1,0 +1,182 @@
+@import "../../../../../../assets/style/style.scss";
+
+.game-container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	padding: 60px;
+
+	@include mq(1024px) {
+		padding: 32px 16px;
+	}
+}
+
+.game-log {
+	padding-bottom: 16px;
+	border-bottom: 1px solid rgb(23, 45, 63);
+	height: 36px;
+
+	p {
+		width: 100%;
+		padding: 8px;
+		background-color: rgba(0, 0, 0, 0.2);
+		color: #fff;
+		border-radius: 4px;
+		display: flex;
+		flex-wrap: nowrap;
+		overflow-x: auto;
+
+		span {
+			white-space: nowrap;
+			margin: 0 4px;
+		}
+
+		@include custom-scrollbar;
+	}
+}
+
+.profile {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	padding: 16px 0;
+	border-bottom: 1px solid rgb(23, 45, 63);
+
+	&__image {
+		border-radius: 5.8px;
+		border: 2px solid rgb(230, 192, 114);
+		margin-right: 24px;
+		object-fit: cover;
+		object-position: center;
+
+		@include mq(768px) {
+			width: 50px;
+			height: 50px;
+			object-fit: cover;
+			object-position: center;
+			margin-right: 8px;
+		}
+	}
+
+	&__info {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+	}
+
+	&__username {
+		margin-bottom: 8px;
+		display: flex;
+		align-items: center;
+		color: #fff;
+		font-size: 24px;
+
+		@include mq(768px) {
+			font-size: 18px;
+		}
+
+		img {
+			margin-right: 4px;
+			font-size: 12px;
+			// border: 1px solid #fff;
+			border-radius: 50%;
+		}
+	}
+
+	.pieces-taken {
+		padding: 4px 8px;
+		background-color: rgba(207, 207, 207, 0.2);
+		border-radius: 3px;
+		box-shadow: -1px 2px 2px 0 rgb(0, 0, 0);
+		color: rgb(207, 207, 207);
+		display: flex;
+		align-items: center;
+	}
+
+	.timer {
+		padding: 16px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 4px;
+		background-color: rgb(23, 45, 63);
+		color: #fff;
+		margin-left: auto;
+
+		@include mq(1024px) {
+			padding: 16px 8px;
+			font-size: 16px;
+
+			img {
+				width: 14px;
+				height: 14px;
+				object-fit: cover;
+				object-position: center;
+			}
+
+			p {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				font-size: 16px;
+			}
+		}
+
+		&--low {
+			background-color: rgb(100, 67, 67);
+			color: rgb(250, 67, 67);
+		}
+
+		p {
+			font-size: 25px;
+		}
+	}
+}
+
+.game-actions {
+	padding: 24px 0;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	&__button {
+		padding: 8px;
+		height: 42px;
+		font-size: 16px;
+		color: #fff;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 4px;
+		background-color: rgb(55, 67, 95);
+		cursor: pointer;
+		outline: none;
+
+		@include mq(1200px) {
+			p {
+				display: none;
+			}
+		}
+
+		@include mq(1024px) {
+			p {
+				display: block;
+			}
+		}
+
+		@include mq(576px) {
+			p {
+				display: none;
+			}
+		}
+
+		&--active {
+			background-color: rgb(10, 21, 37);
+		}
+
+		img {
+			margin-right: 4px;
+		}
+	}
+}

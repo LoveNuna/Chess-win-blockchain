@@ -1,0 +1,98 @@
+@import "../../../../../assets/style/style.scss";
+
+.dashboard-container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	padding: 42px 0;
+
+	h1 {
+		font-family: "aileron-black", sans-serif;
+		font-size: 32px;
+		margin-bottom: 42px;
+		text-align: left;
+		color: $sand;
+	}
+
+	.grid-container {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+
+		h2 {
+			font-family: "aileron-bold", sans-serif;
+			font-size: 24px;
+			color: #fff;
+			margin-bottom: 18px;
+		}
+
+		.grid {
+			@include grid(3, 90px, 30px);
+
+			@include mq(1024px) {
+				@include grid(2, 32px, 32px);
+			}
+
+			@include mq(768px) {
+				@include grid(1, 32px, 32px);
+			}
+
+			width: 100%;
+			margin-bottom: 36px;
+
+			.grid-item-container {
+				padding: 2px;
+				border-radius: 8px;
+			}
+
+			.gold-coins-item-container {
+				background-image: linear-gradient(130deg, rgba(255, 198, 127, 0.45), rgb(116, 83, 15));
+			}
+
+			.games-item-container {
+				background-image: linear-gradient(130deg, rgba(64, 52, 37, 0.45), rgb(55, 40, 8));
+			}
+
+			.users-item-container {
+				background-image: linear-gradient(130deg, rgba(130, 127, 255, 0.45), rgb(32, 15, 116));
+			}
+
+			.item {
+				width: 100%;
+				height: 100%;
+				padding: 20px 16px 22px 16px;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				border-radius: 8px;
+
+				p {
+					color: #fff;
+
+					&:first-child {
+						font-family: "aileron-black", sans-serif;
+						font-size: 62px;
+						margin-bottom: 16px;
+					}
+
+					&:last-child {
+						font-family: "aileron-regular", sans-serif;
+						font-size: 24px;
+					}
+				}
+			}
+
+			.gold-coins-item {
+				background-image: linear-gradient(130deg, #644f1e 55%, #c99131);
+			}
+
+			.games-item {
+				background-image: linear-gradient(130deg, #191c1d 55%, #241b0b);
+			}
+
+			.users-item {
+				background-image: linear-gradient(130deg, #0c3b69 70%, rgb(61, 102, 241));
+			}
+		}
+	}
+}

@@ -1,0 +1,77 @@
+@import '../../../../../../assets/style/style.scss';
+
+.profile-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 32px;
+}
+
+.logo-container {
+  width: 100%;
+  padding: 40px 0 50px 0;
+  border-bottom: 1px solid rgb(23, 45, 63);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+  }
+}
+
+.profile {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 24px 0;
+  border-bottom: 1px solid rgb(23, 45, 63);
+
+  &__settings-icon-container {
+    position: absolute;
+    right: 0;
+    top: 28px;
+    cursor: pointer;
+  }
+
+  &__image {
+    margin-bottom: 16px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+
+    &--default {
+      border: none;
+    }
+  }
+
+  &__name {
+    color: #fff;
+  }
+}
+
+.menu-button {
+  font-family: 'aileron-semibold', sans-serif;
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+  outline: none;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  padding: 0 16px;
+
+  transition: 0.2s ease;
+  -webkit-transition: 0.2s ease;
+  -moz-transition: 0.2s ease;
+}

@@ -1,0 +1,1 @@
+export const INSERT_NEW_GAME_RECORD = "INSERT INTO chess_games (id, black_player_id, white_player_id, requester_id, type, game_time_type, status, points, fair_play_enabled, start_date, fen, promotion) VALUES (:id, :blackPlayerId, :whitePlayerId, :requesterId, :type, :gameTimeType, :status, :points, :fairPlayEnabled,:startDate, :fen, :promotion);"

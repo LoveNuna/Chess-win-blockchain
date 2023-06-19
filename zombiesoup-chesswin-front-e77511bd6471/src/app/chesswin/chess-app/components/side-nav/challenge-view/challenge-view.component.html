@@ -1,0 +1,40 @@
+<div class="challenge-container">
+	<div class="points">
+		<p class="body-text points__title">Points</p>
+
+		<div class="points__points-info points__points-info--gold">
+			<img src="../../../../../../assets/icons/gold-coin-icon.png" alt="gold-points-icon" width="35px" />
+			<p class="body-text">Gold Points</p>
+			<h2 class="heading2">
+				{{
+					user && user['custom:gold_points'] ? user['custom:gold_points'] : ''
+				}}
+			</h2>
+		</div>
+
+		<div class="points__points-info points__points-info--silver">
+			<img src="../../../../../../assets/icons/silver-coin-icon.png" alt="silver-points-icon" width="35px" />
+			<p class="body-text">Silver Points</p>
+			<h2 class="heading2">
+				{{
+					user && user['custom:silver_points']
+						? user['custom:silver_points']
+						: ''
+				}}
+			</h2>
+		</div>
+	</div>
+
+	<!-- <div class="play-now">
+		<p class="body-text play-now__title">Play now</p>
+
+		<button type="button" class="play-now__button play-now__button--gold-challenge-button"
+			[disabled]="lookingForChallenge" (click)="emitChallengeType(challengeType.gold)">
+			Challenge with gold
+		</button>
+		<button type="button" class="play-now__button play-now__button--standard-challenge-button"
+			[disabled]="lookingForChallenge" (click)="emitChallengeType(challengeType.standard)">
+			Standard challenge
+		</button>
+	</div> -->
+</div>

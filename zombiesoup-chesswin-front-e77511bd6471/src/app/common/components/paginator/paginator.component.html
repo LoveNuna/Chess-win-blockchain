@@ -1,0 +1,11 @@
+<div class="pagination" *ngIf="maxPages !== 1">
+	<img [ngStyle]="{ visibility: page !== 1 ? 'visible' : 'hidden' }" alt="chevron-left-icon"
+		src="../../../../assets/icons/chevron-left.svg" (click)="goToPreviousPage()" />
+
+	<div class="page-container" *ngFor="let pageNum of getPages()">
+		<a [ngClass]="{ 'page-active': page === pageNum }" (click)="pageChanged(pageNum)">{{ pageNum }}</a>
+	</div>
+
+	<img [ngStyle]="{ visibility: page !== maxPages ? 'visible' : 'hidden' }" alt="chevron-right-icon"
+		src="../../../../assets/icons/chevron-right.svg" (click)="goNextPage()" />
+</div>

@@ -1,0 +1,4 @@
+<div class="container">
+	<app-game-view style="width: 100%" [game]="game | async" [movesHistory]="movesHistory"
+		(offerDrawEmitter)="handleDrawOffer($event)" (abandonGameEmitter)="handleAbandonGame($event)"></app-game-view>
+</div>

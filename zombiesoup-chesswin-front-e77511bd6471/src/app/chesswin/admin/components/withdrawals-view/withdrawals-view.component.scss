@@ -1,0 +1,200 @@
+@import "../../../../../assets/style/style.scss";
+
+table {
+	width: 100%;
+	overflow: auto;
+	display: flex;
+	flex-direction: column;
+	padding-bottom: 8px;
+
+	@include custom-scrollbar;
+
+	overscroll-behavior: unset;
+
+	thead {
+		width: 100%;
+		min-width: 1024px;
+		display: flex;
+
+		tr {
+			width: 100%;
+			display: flex;
+		}
+
+		th {
+			width: 20%;
+			font-family: "aileron-bold", sans-serif;
+			font-size: 16px;
+			color: $sand;
+			padding: 16px;
+			text-align: left;
+		}
+	}
+
+	tbody {
+		width: 100%;
+		min-width: 1024px;
+		border: 2px solid $sand;
+		border-radius: 5px;
+		display: flex;
+		flex-direction: column;
+		background-color: rgb(11, 27, 50);
+
+		tr {
+			width: 100%;
+			display: flex;
+			border-bottom: 1px solid $sand;
+			transition: all ease 0.2s;
+			-webkit-transition: all ease 0.2s;
+			-moz-transition: all ease 0.2s;
+
+			&:last-child {
+				border-bottom: none;
+			}
+		}
+
+		td {
+			width: 20%;
+			border-color: $sand;
+			color: $very-light-pink;
+			padding: 16px;
+			font-family: "aileron-regular", sans-serif;
+			font-size: 14px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			word-break: break-all;
+
+			.username {
+				font-family: "aileron-bold", sans-serif;
+				font-size: 16px;
+				margin-bottom: 8px;
+			}
+		}
+
+		.country-cell {
+			flex-direction: row;
+			align-items: center;
+			justify-content: flex-start;
+		}
+	}
+}
+
+.header-wrapper {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 32px;
+
+	@include mq(576px) {
+		flex-direction: column;
+		align-items: flex-start;
+		margin-bottom: 16px;
+	}
+
+	h1 {
+		font-family: "aileron-black", sans-serif;
+		font-size: 32px;
+		text-align: left;
+		color: $sand;
+
+		@include mq(576px) {
+			margin-bottom: 24px;
+		}
+	}
+
+	.win-toggler {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+
+		p {
+			font-family: "aileron-regular", sans-serif;
+			font-size: 16px;
+			color: #fff;
+			margin-right: 16px;
+		}
+	}
+
+	.toggler-container {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		border-radius: 4px;
+		background-color: rgb(7, 18, 36);
+		overflow: hidden;
+
+		button {
+			width: 115px;
+			height: 46px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-family: "aileron-bold", sans-serif;
+			background-color: transparent;
+			font-size: 16px;
+			color: #fff;
+			outline: none;
+			cursor: pointer;
+		}
+
+		.active {
+			background-color: rgb(11, 37, 78);
+		}
+	}
+}
+
+.loading-container {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 32px;
+	border: 2px solid $sand;
+	border-radius: 5px;
+	background-color: rgb(11, 27, 50);
+	color: $very-light-pink;
+}
+
+.menu-trigger {
+	width: 125px;
+	height: 42px;
+	border-radius: 4px;
+	cursor: pointer;
+	background: transparent;
+	border: 1px solid #cfcfcf;
+	border-radius: 4px;
+	color: #cfcfcf;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 16px;
+	outline: none;
+}
+
+.mat-menu-item {
+	padding: 0 16px;
+}
+
+.withdrawal-accepted {
+	color: darken(#26e8c8, 10%) !important;
+
+	&::before {
+		content: "Accepted";
+	}
+}
+
+.withdrawal-rejected {
+	color: $coral-pink !important;
+
+	&::before {
+		content: "Rejected";
+	}
+}
+
+.withdrawal-requested {
+	&::before {
+		content: "Requested";
+	}
+}

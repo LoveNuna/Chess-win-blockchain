@@ -1,0 +1,121 @@
+<div class="section-block header">
+	<div class="wrapper">
+		<div class="header-content">
+			<div class="logo-part">
+				<a routerLink="/admin">
+					<img class="header-logo" src="../../../../assets/images/chess-header-logo.png"
+						alt="chess-header-logo" height="50px" />
+				</a>
+			</div>
+			<div class="nav-list" *ngIf="adminLoggedIn | async">
+				<ul class="nav-ul">
+					<li class="nav-link">
+						<a routerLink="/admin/dashboard" routerLinkActive="nav-link--active"
+							class="paragraph text-light-pink">
+							<mat-icon>dashboard</mat-icon>
+							<span>Dashboard</span>
+						</a>
+					</li>
+					<li class="nav-link">
+						<a routerLink="/admin/withdrawals" routerLinkActive="nav-link--active"
+							class="paragraph text-light-pink">
+							<mat-icon>credit_card</mat-icon>
+							<span>Withdrawals</span>
+						</a>
+					</li>
+					<li class="nav-link">
+						<a routerLink="/admin/users" routerLinkActive="nav-link--active"
+							class="paragraph text-light-pink">
+							<mat-icon>supervisor_account</mat-icon>
+							<span>Users</span>
+						</a>
+					</li>
+					<li class="nav-link">
+						<a routerLink="/admin/tracked-users" routerLinkActive="nav-link--active"
+							class="paragraph text-light-pink">
+							<mat-icon>track_changes</mat-icon>
+							<span>Tracked Users</span>
+						</a>
+					</li>
+					<li class="nav-link">
+						<a routerLink="/admin/users-gold-coins" routerLinkActive="nav-link--active"
+							class="paragraph text-light-pink">
+							<mat-icon>monetization_on</mat-icon>
+							<span>Gold Coins</span>
+						</a>
+					</li>
+					<li class="nav-link">
+						<a class="paragraph text-light-pink" (click)="signout()">
+							<mat-icon>exit_to_app</mat-icon>
+							<span>Sign Out</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<mat-icon *ngIf="adminLoggedIn | async" class="side-nav-icon" (click)="toggleSidenav()">{{
+				sidenavOpen ? 'clear' : 'dehaze'
+			}}</mat-icon>
+		</div>
+	</div>
+</div>
+
+<mat-sidenav-container>
+	<mat-sidenav #sidenav [autoFocus]="false" mode="over" position="end" [(opened)]="sidenavOpen"
+		(closed)="sidenavOpen = false">
+		<div class="my-sidenav">
+			<ul class="nav-ul">
+				<li class="nav-link">
+					<a routerLink="/admin/dashboard" routerLinkActive="nav-link--active"
+						class="paragraph text-light-pink">
+						<mat-icon>dashboard</mat-icon>
+						<span>Dashboard</span>
+					</a>
+				</li>
+				<li class="nav-link">
+					<a routerLink="/admin/payments" routerLinkActive="nav-link--active"
+						class="paragraph text-light-pink">
+						<mat-icon>credit_card</mat-icon>
+						<span>Payments</span>
+					</a>
+				</li>
+				<li class="nav-link">
+					<a routerLink="/admin/users" routerLinkActive="nav-link--active" class="paragraph text-light-pink">
+						<mat-icon>supervisor_account</mat-icon>
+						<span>Users</span>
+					</a>
+				</li>
+				<li class="nav-link">
+					<a routerLink="/admin/tracked-users" routerLinkActive="nav-link--active"
+						class="paragraph text-light-pink">
+						<mat-icon>track_changes</mat-icon>
+						<span>Tracked Users</span>
+					</a>
+				</li>
+				<li class="nav-link">
+					<a routerLink="/admin/users-gold-coins" routerLinkActive="nav-link--active"
+						class="paragraph text-light-pink">
+						<mat-icon>monetization_on</mat-icon>
+						<span>Gold Coins</span>
+					</a>
+				</li>
+				<li class="nav-link">
+					<a class="paragraph text-light-pink" (click)="signout()">
+						<mat-icon>exit_to_app</mat-icon>
+						<span>Sign Out</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</mat-sidenav>
+
+	<mat-sidenav-content>
+		<div class="admin-container">
+			<div class="wrapper">
+				<router-outlet></router-outlet>
+			</div>
+		</div>
+
+		<app-footer></app-footer>
+	</mat-sidenav-content>
+</mat-sidenav-container>

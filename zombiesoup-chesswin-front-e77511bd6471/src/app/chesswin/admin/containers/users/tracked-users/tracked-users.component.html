@@ -1,0 +1,9 @@
+<div class="user-list-container">
+	<app-tracked-users-list-view [users]="usersToShow" [requesting]="requesting" (filterEmitter)="filterUsers($event)"
+		(userEmitter)="navigateToUser($event)"></app-tracked-users-list-view>
+
+	<div class="paginator-container">
+		<app-paginator *ngIf="users && users.length" [page]="1" [total]="users.length" [perPage]="usersPerPage"
+			[pagesToShow]="pagesToShow" (pageChangedEmitter)="filterUsersPerPage($event)"></app-paginator>
+	</div>
+</div>

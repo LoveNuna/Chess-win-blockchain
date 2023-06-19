@@ -1,0 +1,14 @@
+{
+  "name": "get-user-stats",
+  "description": "Lambda function to get user stats",
+  "version": "1.0.0",
+  "dependencies": {
+    "@types/node": "^10.12.18",
+    "@types/mysql": "^2.15.5",
+    "mysql": "^2.16.0",
+    "aws-sdk": "^2.391.0",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.2.4",
+    "webpack": "^4.28.4"
+  }
+}

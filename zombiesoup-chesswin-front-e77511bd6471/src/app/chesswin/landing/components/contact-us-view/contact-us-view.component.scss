@@ -1,0 +1,52 @@
+@import "../../../../../assets/style/style.scss";
+
+.wrapper {
+	min-height: 65vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+h1 {
+	color: $very-light-pink-2;
+
+	@include mq(768px) {
+		font-size: 24px;
+	}
+
+	a {
+		color: $sand;
+	}
+
+	@include mq(576px) {
+		padding: 0 20px;
+	}
+}
+div {
+	display: flex;
+	flex-direction: row;
+	margin-top: 20px;
+	width: 100%;
+	justify-content: center;
+	padding: 20px;
+}
+.guerra-ltd {
+	border-radius: 4px;
+	width: 100%;
+	max-width: 340px;
+	background: white;
+	justify-content: center;
+	flex-direction: column;
+	padding: 10px;
+
+	p {
+		font-family: aileron-bold, sans-serif;
+		line-height: 1.3;
+		margin-bottom: 10px;
+	}
+
+	&:first-child {
+		margin-right: 10px;
+	}
+}

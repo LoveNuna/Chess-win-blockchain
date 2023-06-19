@@ -1,0 +1,192 @@
+@import "../../../../../assets/style/style.scss";
+
+.gradient-background {
+	background-image: linear-gradient($dark-indigo-two, $midnight-two);
+
+	.presentation-section {
+		position: relative;
+		background-image: url(../../../../../assets/images/chess-background.png);
+		background-position: top left;
+		background-repeat: no-repeat;
+		background-size: 100% 46%;
+
+		.presentation-image {
+			max-height: 550px;
+			max-width: 55%;
+			position: absolute;
+			top: 180px;
+			right: 0;
+
+			@include mq(1200px) {
+				max-height: unset;
+				// max-width: 50%;
+			}
+
+			@include mq(992px) {
+				display: none;
+			}
+		}
+
+		.presentation-wrapper {
+			padding: 42px 0 55px;
+
+			.text-gradient {
+				color: $sand;
+			}
+
+			.login-area {
+				display: flex;
+				flex-direction: column;
+				max-width: 340px;
+				margin-top: 64px;
+
+				@include mq(992px) {
+					margin: 0 auto !important;
+					padding-top: 30px;
+				}
+
+				.login-form {
+					display: flex;
+					flex-direction: column;
+					position: relative;
+
+					.form-group {
+						width: 100%;
+						display: flex;
+						flex-direction: column;
+						position: relative;
+					}
+
+					.label {
+						font-family: "aileron-semibold", sans-serif;
+						font-size: 14px;
+						line-height: 18px;
+						color: $mushroom;
+						text-transform: uppercase;
+						margin-bottom: 8px;
+						margin-top: 32px;
+					}
+
+					.chess-input {
+						background-color: transparent;
+						border: 1px solid #ecbe7d;
+						border-radius: 4px;
+						padding: 12px;
+						font-size: 12px;
+						color: #fff;
+						outline: none;
+
+						&:-internal-autofill-selected {
+							background-color: transparent !important;
+						}
+
+						&::placeholder {
+							color: darken($very-light-pink-2, 15%);
+							font-size: 12px;
+						}
+					}
+
+					.button-sand-gradient {
+						margin-top: 15px;
+						font-family: "aileron-bold", sans-serif;
+						font-size: 16px;
+						line-height: 22px;
+						letter-spacing: normal;
+					}
+				}
+
+				.download-app-area {
+					margin-top: 48px;
+
+					.paragraph {
+						font-family: "aileron-regular", sans-serif;
+					}
+
+					.action-buttons {
+						display: flex;
+						justify-content: space-between;
+						margin-top: 24px;
+
+						a {
+							max-width: 48%;
+
+							img {
+								width: 100%;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.are-you-ready-wrapper {
+			border-radius: 12px;
+			border: 2px solid $sand;
+			padding: 58px 24px 58px 54px;
+			margin-top: 24px !important;
+			margin-bottom: 80px !important;
+
+			@include mq(576px) {
+				padding: 32px 16px 32px 32px;
+			}
+
+			.main-title {
+				margin-bottom: 68px;
+
+				@include mq(576px) {
+					margin-bottom: 42px;
+				}
+			}
+
+			.content-box {
+				width: 100%;
+				max-height: 448px;
+				overflow: auto;
+				padding-right: 59px;
+
+				@include custom-scrollbar;
+
+				overscroll-behavior: unset;
+
+				&::-webkit-scrollbar-track {
+					box-shadow: none;
+					-webkit-box-shadow: none;
+					background: transparent;
+				}
+
+				&::-webkit-scrollbar {
+					width: 5px;
+					height: 5px;
+					background: transparent;
+				}
+
+				@include mq(576px) {
+					padding-right: 24px;
+				}
+
+				.paragraph {
+					font-family: "aileron-bold", sans-serif;
+					margin-bottom: 24px;
+				}
+			}
+		}
+	}
+}
+
+.error-message {
+	position: absolute;
+	left: 12px;
+	top: calc(100% + 5px);
+	font-family: "aileron-regular", sans-serif;
+	font-size: 12px;
+	color: $coral-pink;
+}
+
+.server-error {
+	margin-top: 15px;
+	height: 12px;
+	width: 100%;
+	font-family: "aileron-regular", sans-serif;
+	font-size: 12px;
+	color: $coral-pink;
+}

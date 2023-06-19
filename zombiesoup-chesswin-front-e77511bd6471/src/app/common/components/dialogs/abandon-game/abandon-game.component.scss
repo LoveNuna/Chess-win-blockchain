@@ -1,0 +1,52 @@
+@import "../../../../../assets/style/style.scss";
+
+h1 {
+	font-family: "aileron-regular", sans-serif;
+	font-size: 32px;
+	margin-bottom: 16px;
+	color: $very-light-pink;
+}
+
+p {
+	font-family: "aileron-regular", sans-serif;
+	font-size: 14px;
+	margin-bottom: 24px;
+	color: $very-light-pink;
+	line-height: 1.5;
+}
+
+.actions {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+
+	button {
+		width: 120px;
+		height: 36px;
+		border-radius: 4px;
+		background-color: rgb(55, 67, 95);
+		outline: none;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-family: "aileron-bold", sans-serif;
+		font-size: 14px;
+		text-transform: uppercase;
+		cursor: pointer;
+		transition: all ease 0.1s;
+		-webkit-transition: all ease 0.1s;
+		-moz-transition: all ease 0.1s;
+	}
+
+	.confirm-button {
+		background: linear-gradient(-45deg, #62c161, #a9d2ad);
+		color: #000;
+		margin-left: 8px;
+	}
+
+	.cancel-button {
+		background: $coral-pink;
+		color: #fff;
+	}
+}

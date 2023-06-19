@@ -1,0 +1,18 @@
+{
+  "name": "send-game-request",
+  "description": "Lambda function to send new game request",
+  "version": "1.0.0",
+  "dependencies": {
+    "@types/aws4": "^1.5.1",
+    "@types/crypto-js": "^3.1.43",
+    "@types/mysql": "^2.15.5",
+    "aws-sdk": "^2.388.0",
+    "aws4": "^1.8.0",
+    "axios": "^0.18.0",
+    "crypto-js": "^3.1.9-1",
+    "mysql": "^2.16.0",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.2.4",
+    "webpack": "^4.28.4"
+  }
+}

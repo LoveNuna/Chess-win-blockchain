@@ -1,0 +1,47 @@
+@import "../../../../../assets/style/style.scss";
+
+.gradient-background {
+	background-image: linear-gradient($dark-indigo-two, $midnight-two);
+
+	.privacy-section {
+		position: relative;
+		background-image: url(../../../../../assets/images/chess-background.png);
+		background-position: top left;
+		background-repeat: no-repeat;
+		background-size: 100% 46%;
+
+		.privacy-wrapper {
+			padding: 90px 0px;
+
+			.title-area {
+				margin-bottom: 110px;
+
+				.text-gradient {
+					background: linear-gradient(to right, rgba(236, 190, 125, 0.33) 0%, #ffc777 60%);
+					background-clip: text;
+					-webkit-background-clip: text;
+					-webkit-text-fill-color: transparent;
+				}
+			}
+
+			.description-area {
+				.paragraph {
+					margin-bottom: 24px;
+				}
+
+				.unordered-list-container {
+					ul {
+						list-style: none;
+					}
+
+					li::before {
+						content: url("../../../../../assets/icons/bullet-point-sand.png");
+						display: inline-block;
+						width: 1em;
+						margin-left: 0;
+					}
+				}
+			}
+		}
+	}
+}

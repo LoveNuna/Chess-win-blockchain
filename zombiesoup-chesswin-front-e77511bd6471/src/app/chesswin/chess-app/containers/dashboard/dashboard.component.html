@@ -1,0 +1,43 @@
+<mat-icon class="menu-toggler" (click)="showMenu = !showMenu">{{
+	showMenu ? 'clear' : 'dehaze'
+}}</mat-icon>
+<mat-icon *ngIf="!!game.getValue()" class="chat-toggler" (click)="showChat = !showChat">
+	{{ showChat ? 'clear' : 'chat' }}</mat-icon>
+
+<div class="wrapper">
+	<mat-sidenav-container class="viewport">
+		<mat-sidenav class="side-nav" [opened]="showMenu" fixedInViewport="true"
+			[mode]="responsiveView ? 'over' : 'side'" (closed)="showMenu = false">
+			<app-profile-view [user]="user | async" (signOutEmitter)="signOut()"></app-profile-view>
+			<app-challenge-view [user]="user | async" (challengeTypeEmitter)="handleRandomGameRequest($event)">
+			</app-challenge-view>
+			<app-friends-view [friends]="friends | async" (challengeEmitter)="handleNewGameRequest($event)"
+				(refreshFriendsEmitter)="refreshFriends($event)"></app-friends-view>
+		</mat-sidenav>
+
+		<mat-sidenav *ngIf="showGameChat" class="side-nav messages-nav" [opened]="showChat"
+			[mode]="responsiveView ? 'over' : 'side'" position="end" (closed)="showChat = false">
+			<app-messages-view [game]="game | async" [messages]="messages | async"
+				(messageEmitter)="sendMessage($event)"></app-messages-view>
+		</mat-sidenav>
+
+		<div class="main-content">
+			<!-- <div class="header-description">
+				<h1 class="heading1 packages-title" (click)="navigateToPackages()">
+					Buy Gold Coins
+				</h1>
+				<h1 class="heading1 packages-title" (click)="navigateToCash()">
+					Convert to Cash
+				</h1>
+			</div> -->
+
+			<router-outlet></router-outlet>
+
+			<!-- <div>
+				<p style="color: white;" (click)="navigateToCreditCard()">
+					Credit Card
+				</p>
+			</div> -->
+		</div>
+	</mat-sidenav-container>
+</div>

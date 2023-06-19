@@ -1,0 +1,103 @@
+import * as AWS from "aws-sdk";
+import { CONSTANTS } from "../_helpers";
+import * as mysqlL from "mysql";
+const mysql = mysqlL;
+
+let connection;
+
+const dynamodb = new AWS.DynamoDB();
+
+export const handler = async (event: any = {}): Promise<any> => {
+  const userId = event.userId;
+  const gameId = event.gameId;
+  const connectionId = event.connectionId;
+
+  if (!connection) {
+    initializeConnection();
+  }
+
+  try {
+    await insertSubscription(gameId, connectionId, userId);
+    await updateUserPlayingStatus(userId);
+  } catch (e) {
+    console.log("subscribe-game-lambda-error", e);
+    return {
+      statusCode: 400
+    };
+  }
+
+  return {
+    statusCode: 200
+  };
+};
+
+const insertSubscription = (
+  gameId: string,
+  connectionId: string,
+  playerId: string
+) => {
+  const params = {
+    Item: {
+      GameId: {
+        S: gameId
+      },
+      ConnectionId: {
+        S: connectionId
+      },
+      PlayerId: {
+        S: playerId
+      }
+    },
+    TableName: CONSTANTS.GAME_SUBSCRIPTIONS_TABLE_NAME
+  };
+
+  return new Promise((resolve, eject) => {
+    dynamodb.putItem(
+      params,
+      (error: AWS.AWSError, data: AWS.DynamoDB.PutItemOutput) => {
+        if (error) {
+          eject(error);
+        } else {
+          resolve(data);
+        }
+      }
+    );
+  });
+};
+
+const updateUserPlayingStatus = async (userId: any) => {
+  const params = [userId];
+  const UPDATE_PLAYER_PLAYING_STATUS_ON =
+    "UPDATE players p SET p.playing = 1 WHERE p.id = ?";
+
+  return new Promise((resolve, eject) => {
+    connection.query(UPDATE_PLAYER_PLAYING_STATUS_ON, params, function(
+      error,
+      results,
+      fields
+    ) {
+      if (error) {
+        console.log(
+          userId,
+          new Date().getTime(),
+          "Error on updating user playing status"
+        );
+
+        eject(error);
+      } else {
+        console.log(userId, new Date().getTime(), "returning user status");
+
+        resolve(results);
+      }
+    });
+  });
+};
+
+const initializeConnection = () => {
+  connection = mysql.createConnection({
+    host: CONSTANTS.CHESSF_MYSQL_HOST,
+    user: CONSTANTS.CHESSF_MYSQL_USER,
+    password: CONSTANTS.CHESSF_MYSQL_PASSWORD,
+    database: CONSTANTS.CHESSF_MYSQL_DATABASE
+  });
+};

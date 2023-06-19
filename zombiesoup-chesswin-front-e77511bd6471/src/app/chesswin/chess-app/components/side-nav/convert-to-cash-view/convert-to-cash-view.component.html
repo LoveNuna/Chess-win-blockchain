@@ -1,0 +1,64 @@
+<div class="login-area">
+	<div class="chess-logo">
+		<img src="../../../../../../assets/images/logo123.png" alt="" routerLink="/" />
+		<h6>Thank you for playing ChessWin!</h6>
+	</div>
+
+	<div class="profile">
+		<img *ngIf="user && user['custom:profile_picture']; else defaultUserImage" class="profile__image"
+			[src]="user['custom:profile_picture']" alt="profile-image" width="60px" height="60px" />
+		<div class="infos">
+			<h3 class="heading3 profile__name">{{ user?.name }}</h3>
+			<h3 class="heading3 profile__gold-points">
+				Gold Coins:
+				<span class="gold-numbers">
+					{{
+						user && user['custom:gold_points'] ? user['custom:gold_points'] : ''
+					}}</span>
+			</h3>
+		</div>
+	</div>
+
+	<div class="info-description">
+		<h6>
+			Please enter your data which we need to transfer money in your account!
+		</h6>
+	</div>
+
+	<form class="login-form" [formGroup]="withdrawalForm">
+		<div class="form-group">
+			<span class="label">How many gold coins you want to withdraw?</span>
+			<input formControlName="drawGoldPoints" class="chess-input" name="gold-points" placeholder="Gold Points"
+				tabindex="1" type="number" />
+			<span *ngIf="submitted && goldPointsError" class="error-message">Please enter valid gold points!</span>
+
+			<span *ngIf="submitted && goldPointsValue" class="error-message">You don't have enough gold points!</span>
+
+			<span *ngIf="submitted && minimumGoldPoints" class="error-message">Minimum request for withdraw of gold coin
+				is 20
+			</span>
+		</div>
+
+		<div class="form-group">
+			<span class="label">Paypal Account </span>
+			<input formControlName="paypalEmail" class="chess-input" name="paypal-id" placeholder="Paypal Account"
+				tabindex="2" type="text" />
+			<span *ngIf="submitted && paypalEmailError" class="error-message">Please enter valid paypal account!</span>
+		</div>
+
+		<button (click)="emitForm()" class="button button-sand-gradient" tabindex="3" type="submit"
+			[disabled]="requesting">
+			<p *ngIf="!requesting; else loginLoading">Request Withdrawal</p>
+		</button>
+	</form>
+</div>
+
+<ng-template #loginLoading>
+	<app-loading [size]="25"></app-loading>
+</ng-template>
+
+<ng-template #defaultUserImage>
+	<img class="profile__image profile__image--default"
+		src="../../../../../../assets/images/dashboard/default-user-image.png" alt="default-profile-image"
+		width="60px" />
+</ng-template>

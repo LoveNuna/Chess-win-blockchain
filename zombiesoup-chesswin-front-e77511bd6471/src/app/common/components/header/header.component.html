@@ -1,0 +1,84 @@
+<div class="section-block header">
+	<div class="wrapper">
+		<div class="header-content">
+			<div class="logo-part">
+				<a routerLink="/">
+					<img class="header-logo" src="../../../../assets/images/chess-header-logo.png"
+						alt="chess-header-logo" />
+				</a>
+			</div>
+			<div class="nav-list">
+				<ul class="nav-ul">
+					<li class="nav-link">
+						<a routerLink="/" class="paragraph text-light-pink">
+							Home
+						</a>
+					</li>
+					<li class="nav-link">
+						<a routerLink="/fair-play" routerLinkActive="nav-active" class="paragraph text-light-pink">
+							Fair Play
+						</a>
+					</li>
+					<li class="nav-link">
+						<a routerLink="/faq" routerLinkActive="nav-active" class="paragraph text-light-pink">
+							FAQ
+						</a>
+					</li>
+					<li class="nav-link">
+						<a routerLink="/how-to" routerLinkActive="nav-active" class="paragraph text-light-pink">
+							Info
+						</a>
+					</li>
+					<li class="nav-link">
+						<a routerLink="/contact-us" routerLinkActive="nav-active" class="paragraph text-light-pink">
+							Contact Us
+						</a>
+					</li>
+					<!-- <li class="nav-link">
+            <a routerLink="/about-us" routerLinkActive="nav-active" class="paragraph text-light-pink">
+              About Us
+            </a>
+          </li> -->
+				</ul>
+			</div>
+
+			<div class="end-section">
+				<div class="languages-part">
+					<div class="dropdown-area">
+						<button class="button button-languages" (click)="toggleDropdownOpen()">
+							<img class="language-icon" src="../../../../assets/icons/{{ selectedFlag }}"
+								alt="selected-language-flag" width="13" />
+							<span class="paragraph-short text-white">
+								{{ selectedLanguage }}
+							</span>
+							<img class="chevron-down-icon" src="../../../../assets/icons/chevron-down-icon.png"
+								alt="selected-language-flag" height="6" />
+						</button>
+
+						<div class="dropdown-content" *ngIf="languagesDropdownOpen">
+							<div class="dropdown-item" *ngFor="let language of languages">
+								<button (click)="
+										changeSelectedLanguage(
+											language.id,
+											language.flag,
+											language.name
+										)
+									" class="button button-dropdown" [ngClass]="
+										selectedLanguageId === language.id ? 'display-none' : ''
+									">
+									<img class="language-icon" src="../../../../assets/icons/{{ language.flag }}"
+										alt="selected-language-flag" width="13" />
+									{{ language.name }}
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<mat-icon (click)="toggleSidenav()">{{
+					sidenavOpened ? 'clear' : 'dehaze'
+				}}</mat-icon>
+			</div>
+		</div>
+	</div>
+</div>

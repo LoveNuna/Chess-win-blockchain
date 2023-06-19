@@ -1,0 +1,43 @@
+{
+  "mainTitle": "ChessWin - Another level of chess game!",
+  "descriptionTitle": "Are you ready for another level of chess game?",
+  "descriptionParagraph1": "Have you ever imagined the opportunity that you can play chess and win money at the same time?",
+  "descriptionParagraph2": "Now you can!",
+  "descriptionParagraph3": "ChessWin is an online application/platform that chess players all over the world have missed until now.",
+  "descriptionParagraph4": "Aim of ChessWin platform is to move the chess game to another level providing the opportunity to players to experience a much greater adrenaline rush during the game. Now with ChessWin, it will not only be played for points and passion, but each player will have the opportunity to turn their winnings into cash.",
+  "descriptionParagraph5": "Through ChessWin platform/application, for the first time in history, chess players are given the opportunity to earn cash by playing chess online with different players from all over the world.",
+  "descriptionParagraph6": "How does the transaction and purchase system work?",
+  "descriptionParagraph7": {
+    "paragraph1": "In order for ChessWin players to have an easier and simpler exchange of their winnings into cash, we have created a \"coin\" named GoldCoin which we have valued at a real dollar value.",
+    "coloredParagraph1": "GoldCoin values are available on the chess-win.com official site, where purchase and exchange of GoldCoins is also made.",
+    "paragraph2": "Purchase and exchange of GoldCoins can be made through Paypal and only on the official website of the platform - www.chess-win.com, at any time 24/7. The main focus of ChessWin staff is in securing and guaranteeing all Gold Coin and Fair-Play transactions throughout all played games. Therefore, for any additional questions or clarifications, please contact our staff at",
+    "coloredParagraph2": "support@chess-win.com",
+    "paragraph3": ", who will be there for you at any time."
+  },
+  "fairPlay": {
+    "title": "How we guarantee and manage FAIRPLAY in ChessWin",
+    "method1Title": "1. FEN Method",
+    "method1Description": "Each game will be separately and automatically analysed by the artificial intelligence laboratory, in accordance with the international rules of chess. The platform quickly detects a potential robot player that will be monitored by our staff. If the same is verified to be a robot/cheater player, the same will be automatically kicked out from the platform.",
+    "method2Title": "2. Random Move",
+    "method2Description": "We have also designed the other method called Random Move, which enables players, in the initial five moves, one random move (without player’s will) be played by platform for both players. This method eliminates the possibility of game tracking by various computers. The Random Move method is not compulsory, but only if the players want to apply it during the game.",
+    "paragraph1": "In addition to these methods, we have a highly developed software part (Artificial Intelligence Module) which detects any violation of the FAIRPLAY game rules. At the time of detection of any such user, ChessWin has the right to block that user without any warning.",
+    "paragraph2": "Also, the platform ensures that selected opponent players are of approximately same ranking. This means that a strong player (who has high rating) will have an opponent/will compete with a player of the same strength category who has a similar rating; and a beginner chess player will compete with a player who has low rating and who is considered a beginner."
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "question1": "How do I participate in the ChessWin game?",
+    "answer1": "In order to participate in the ChessWin game, you must download the app through the PlayStore or AppStore, register in a few simple steps and open an account. (Watch the video on our ChessWin Facebook page)",
+    "question2": "How can I play for CASH at ChessWin chess?",
+    "answer2": "To simplify your account management and reduce your costs, the ChessWin platform has developed its own coin called GoldCoin. This coin, which allows you to play chess with CASH, can only be purchased and sold through the website www.chess-win.com. To play for CASH, you only need to buy one of the coin packages (from $10 to $500). The app is programmed to cost 1 COIN 1 USD, which means that the value of GOLDCOIN is exactly what you paid for it. The transaction commission for buying and withdrawing is borne by the player. Once you've won your games, you can convert GoldCoins into cash anytime, 365 days, 24/7 through this site. (Watch the video on our ChessWin Facebook page)",
+    "question3": "What is the compensation / commission for the ChessWin platform?",
+    "answer3": "In our game of chess you play ONLY against other players for cash. To ensure fair play and to offer this opportunity to all and to maintain the quality of our app, we retain a 2.5% commissions allowance on the amount the player won at the end of each game. FOR EXAMPLE: Two players have a value of 1.00 COIN each, the game is played for a total of 2.00 COINS. The winner will receive 1.95 COINS in his account and the ChessWin commission will be ONLY 0.05 COINS.",
+    "question4": "How can GoldCoin transactions be executed and guaranteed?",
+    "answer4": "GoldCoin can only be purchased on our website if you are a member of the ChessWin platform. The payment system and your personal information are protected and used only for the ChessWin payments you have authorized. In order to withdraw your COINS / CASH earned by your games, you must log into your ChessWin account on the website and click on the transaction link. This will take you to your account where you will be able to select the conversion value. To make this process as clear as possible, we have prepared a video for you, which you can view at this link. All of your transactions are enabled and supported by the world's most secure and widely used payment providers",
+    "question5": "How is FairPlay handled by ChessWin?",
+    "answer5": "1. FEN Method: Each game is individually and automatically analyzed by the Artificial Intelligence Laboratory according to international chess rules. The platform quickly recognizes a potential robot player and our employees monitor it. If it turns out to be a robot / cheater, it will be automatically blocked for the platform. 2. Random move: We have also developed another method, called random move, which randomly makes the platform random to the players within the first five moves (without the players' permission). This method eliminates the possibility of game tracking by different computers. The random move method is not compulsory, but only if players want to use it during the game. In addition to these methods, we have a sophisticated software module (the Artificial Intelligence module) that detects violations of the FAIRPLAY rules. At the time of discovery of such a user, ChessWin has the right to suspend this user without warning. The platform also ensures that selected opposing players have roughly the same rank. This means that a strong player (who has a high rating) will get an opponent / will play with a player of the same strength category and with a similar rating. A beginner in the game of chess competes against a low scoring player who is also a beginner on our platform.",
+    "question6": "What happens to your COINS in your running game when the internet connection is lost?",
+    "answer6": "If the Internet connection is interrupted during the game, the ChessWin platform will wait a while for you to re-connect to the Internet. Otherwise, your COINS placed in this game will be your opponent.",
+    "question7": "How can we contact ChessWin support for any issues or other questions?",
+    "answer7": "To provide ongoing support, ChessWin provides professional teams to answer your questions and email you a response / instruction as soon as possible to help you with any issues that arise while using the ChessWin app could occur. If you have questions or suggestions, please send us an e-mail to: support@chess-win.com"
+  }
+}

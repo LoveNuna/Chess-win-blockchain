@@ -1,0 +1,8 @@
+<mat-dialog-content>
+	<h1>{{ dialogData.disableUser ? 'Disable' : 'Activate' }} user account?</h1>
+	<p>Are you sure you want to {{ dialogData.disableUser ? 'disable' : 'activate' }} this account?</p>
+	<div class="actions">
+		<button class="cancel-button" (click)="respondToRequest(false)">Cancel</button>
+		<button class="confirm-button" (click)="respondToRequest(true)">Confirm</button>
+	</div>
+</mat-dialog-content>

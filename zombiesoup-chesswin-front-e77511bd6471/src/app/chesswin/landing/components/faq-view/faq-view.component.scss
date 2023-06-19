@@ -1,0 +1,100 @@
+@import "../../../../../assets/style/style.scss";
+
+.gradient-background {
+	background-image: linear-gradient($dark-indigo-two, $midnight-two);
+
+	.faq-section {
+		position: relative;
+		background: url(../../../../../assets/images/chess-background.png) no-repeat;
+		box-sizing: border-box;
+		background-size: 100%;
+
+		.faq-wrapper {
+			padding: 42px 0px 110px;
+
+			.title-area {
+				margin-bottom: 80px;
+
+				.text-gradient {
+					color: $sand;
+				}
+			}
+
+			.accordion-area {
+				width: 100%;
+				max-width: 940px;
+				margin: 0 auto !important;
+
+				.accordion-container {
+					display: flex;
+					flex-direction: column;
+
+					.accordion-item {
+						width: 100%;
+						display: flex;
+						flex-direction: column;
+						background-image: linear-gradient(#002557, #152134);
+						border: 2px solid $sand;
+						border-radius: 6px;
+						box-sizing: border-box;
+						transition: all ease 0.5s;
+						-webkit-transition: all ease 0.5s;
+						-moz-transition: all ease 0.5s;
+						cursor: pointer;
+						margin-bottom: 24px;
+
+						&:last-child {
+							margin-bottom: 0;
+						}
+
+						.accordion-header {
+							height: 50px;
+							display: flex;
+							box-sizing: border-box;
+							padding: 13px 16px;
+
+							.accordion-title {
+								width: 100%;
+								display: flex;
+								justify-content: space-between;
+								align-items: center;
+
+								.paragraph {
+									font-family: "aileron-bold", sans-serif;
+									line-height: 24px;
+									white-space: nowrap;
+									overflow: hidden;
+									text-overflow: ellipsis;
+								}
+							}
+						}
+
+						.accordion-body {
+							padding: 12px 75px 24px 16px;
+							box-sizing: border-box;
+
+							.paragraph-short {
+								font-family: "aileron-regular", sans-serif;
+							}
+						}
+					}
+
+					.show-body {
+						height: auto;
+					}
+
+					.hide-body {
+						height: 0;
+						padding: 0 !important;
+						visibility: hidden;
+						overflow: hidden;
+					}
+
+					.icon-down {
+						transform: rotate(180deg);
+					}
+				}
+			}
+		}
+	}
+}

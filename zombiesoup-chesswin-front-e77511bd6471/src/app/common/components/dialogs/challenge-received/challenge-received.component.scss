@@ -1,0 +1,229 @@
+@import "../../../../../assets/style/style.scss";
+
+.label {
+	font-family: "aileron-regular", sans-serif;
+	font-size: 12px;
+	color: rgb(207, 207, 207);
+	margin-bottom: 8px;
+	text-transform: uppercase;
+}
+
+.challenge-overview {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 24px;
+
+	.profile {
+		position: relative;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		padding-left: 10px;
+
+		&__image {
+			border-radius: 2px;
+			border: 1px solid rgb(252, 252, 252);
+			object-fit: cover;
+			object-position: center;
+		}
+
+		&__country-image {
+			border-radius: 50%;
+			object-fit: cover;
+			object-position: center;
+			position: absolute;
+			bottom: -9px;
+			left: 0;
+			// border: 1px solid #fff;
+		}
+
+		&__info {
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			margin-left: 8px;
+		}
+
+		&__name {
+			font-family: "aileron-regular", sans-serif;
+			font-size: 16px;
+			color: rgb(230, 192, 114);
+			margin-bottom: 8px;
+		}
+
+		&__nickname {
+			font-family: "aileron-regular", sans-serif;
+			font-size: 14px;
+			color: rgb(252, 252, 252);
+		}
+	}
+}
+
+.challenge-type {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 24px;
+
+	&__actions {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__button {
+		width: 49%;
+		height: 42px;
+		border-radius: 4px;
+		background-color: rgb(55, 67, 95);
+		outline: none;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-family: "aileron-bold", sans-serif;
+		font-size: 14px;
+		color: #fff;
+		text-transform: uppercase;
+		cursor: pointer;
+		transition: all ease 0.1s;
+		-webkit-transition: all ease 0.1s;
+		-moz-transition: all ease 0.1s;
+
+		&--standard {
+			background-image: linear-gradient(#c6bfbb, #e3e3e3);
+			color: rgb(18, 27, 40);
+		}
+
+		&--gold {
+			background-color: rgb(230, 192, 114);
+			color: rgb(18, 27, 40);
+		}
+	}
+}
+
+.challenge-details {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 24px;
+
+	.challenge-ammount {
+		width: 49%;
+		display: flex;
+		flex-direction: column;
+
+		button {
+			width: 100%;
+			height: 42px;
+			border-radius: 4px;
+			background-color: rgb(55, 67, 95);
+			outline: none;
+			display: flex;
+			justify-content: flex-start;
+			padding: 0 8px;
+			align-items: center;
+			font-family: "aileron-regular", sans-serif;
+			color: #fff;
+			font-size: 16px;
+			cursor: pointer;
+
+			.coin-icon {
+				margin-right: 5px;
+			}
+		}
+	}
+
+	.challenge-time {
+		width: 49%;
+		display: flex;
+		flex-direction: column;
+
+		button {
+			width: 100%;
+			height: 42px;
+			border-radius: 4px;
+			background-color: rgb(55, 67, 95);
+			outline: none;
+			display: flex;
+			justify-content: flex-start;
+			padding: 0 8px;
+			align-items: center;
+			font-family: "aileron-regular", sans-serif;
+			color: #fff;
+			font-size: 16px;
+			cursor: pointer;
+
+			.time-icon {
+				margin-right: 5px;
+			}
+		}
+	}
+}
+
+.fair-play {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 24px;
+
+	&__actions {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__button {
+		width: 49%;
+		height: 42px;
+		border-radius: 4px;
+		background-color: rgb(55, 67, 95);
+		outline: none;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-family: "aileron-bold", sans-serif;
+		font-size: 14px;
+		color: #fff;
+		cursor: pointer;
+		transition: all ease 0.1s;
+		-webkit-transition: all ease 0.1s;
+		-moz-transition: all ease 0.1s;
+	}
+}
+
+.actions {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+
+	button {
+		width: 49%;
+		height: 42px;
+		border-radius: 4px;
+		outline: none;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-family: "aileron-regular", sans-serif;
+		font-size: 14px;
+		color: #fff;
+		text-transform: uppercase;
+		cursor: pointer;
+		transition: all ease 0.1s;
+		-webkit-transition: all ease 0.1s;
+		-moz-transition: all ease 0.1s;
+	}
+
+	.accept-button {
+		background-image: linear-gradient(-45deg, #62c161, #a9d2ad);
+	}
+
+	.decline-button {
+		background-color: $coral-pink;
+	}
+}

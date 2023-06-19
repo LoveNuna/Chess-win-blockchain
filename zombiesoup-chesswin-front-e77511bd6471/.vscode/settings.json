@@ -1,0 +1,28 @@
+{
+  "editor.insertSpaces": false,
+  "vetur.format.options.tabSize": 4,
+  "editor.detectIndentation": false,
+  "scssFormatter.useTabs": true,
+  "scssFormatter.tabWidth": 4,
+  "[css]": {
+    "editor.defaultFormatter": "aeschli.vscode-css-formatter"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "files.associations": {
+    "*.svg": "html"
+  },
+  "namespaceResolver.sortAlphabetically": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "editor.formatOnSave": true,
+  "eslint.format.enable": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "eslint.run": "onSave",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
+}

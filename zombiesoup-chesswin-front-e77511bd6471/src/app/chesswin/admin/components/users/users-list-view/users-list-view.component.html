@@ -1,0 +1,47 @@
+<div class="input-wrapper">
+	<h1>Users({{ totalUsers }})</h1>
+
+	<input #filterInput placeholder="Search" />
+</div>
+
+<table *ngIf="users && !requesting; else loading">
+	<thead>
+		<tr>
+			<th>
+				User
+			</th>
+			<th>
+				Country
+			</th>
+			<th>
+				Registered Date
+			</th>
+		</tr>
+	</thead>
+
+	<tbody *ngIf="users.length; else noUsers">
+		<tr *ngFor="let user of users" (click)="emitUser(user)">
+			<td>
+				<p class="username">{{ user.name }}</p>
+				<p>{{ user.email }}</p>
+			</td>
+			<td class="country-cell">
+				<img src="../../../../../../assets/images/flags/{{ user.country }}.png" width="24px" height="24px"
+					style="margin-right: 8px;" />{{ user.country }}
+			</td>
+			<td>{{ user.created_date | date: 'dd/MM/yyyy, h:mm a' }}</td>
+		</tr>
+	</tbody>
+</table>
+
+<ng-template #loading>
+	<div class="loading-container">
+		<app-loading size="70"></app-loading>
+	</div>
+</ng-template>
+
+<ng-template #noUsers>
+	<div class="loading-container">
+		<p>No users found...</p>
+	</div>
+</ng-template>

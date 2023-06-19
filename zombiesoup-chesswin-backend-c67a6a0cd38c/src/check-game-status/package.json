@@ -1,0 +1,12 @@
+{
+  "name": "mock",
+  "description": "Lambda function to check if both players have join game",
+  "version": "1.0.0",
+  "dependencies": {
+    "@types/node": "^10.12.18",
+    "aws-sdk": "^2.391.0",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.2.4",
+    "webpack": "^4.28.4"
+  }
+}

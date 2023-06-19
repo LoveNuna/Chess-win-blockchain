@@ -1,0 +1,14 @@
+{
+  "name": "post-confirmation",
+  "description": "Lambda function to put new user in RDS table after confirmation",
+  "version": "1.0.0",
+  "dependencies": {
+    "@types/mysql": "^2.15.5",
+    "aws-sdk": "^2.418.0",
+    "mysql": "^2.16.0",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.2.4",
+    "webpack": "^4.28.4"
+  },
+  "devDependencies": {}
+}

@@ -1,0 +1,244 @@
+@import "./assets/style/style.scss";
+
+@font-face {
+	font-family: "aileron-black";
+	font-display: swap;
+	src: url("./assets/fonts/Aileron-Black.otf");
+}
+
+@font-face {
+	font-family: "aileron-bold";
+	font-display: swap;
+	src: url("./assets/fonts/Aileron-Bold.otf");
+}
+
+@font-face {
+	font-family: "aileron-heavy";
+	font-display: swap;
+	src: url("./assets/fonts/Aileron-Heavy.otf");
+}
+
+@font-face {
+	font-family: "aileron-regular";
+	font-display: swap;
+	src: url("./assets/fonts/Aileron-Regular.otf");
+}
+
+@font-face {
+	font-family: "aileron-semibold";
+	font-display: swap;
+	src: url("./assets/fonts/Aileron-SemiBold.otf");
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: "aileron-regular", sans-serif;
+	background-image: linear-gradient(#0b1b32, #051225);
+}
+
+.section-block {
+	width: 100%;
+	min-height: 1px;
+	box-sizing: border-box;
+	display: block;
+}
+
+.wrapper {
+	width: 95%;
+	max-width: 1200px;
+	min-height: 1px;
+	height: 100%;
+	margin: 0 auto !important;
+}
+
+.wide-wrapper {
+	width: 90%;
+	max-width: 1400px;
+	min-height: 1px;
+	height: 100%;
+	margin: 0 auto !important;
+}
+
+.row {
+	display: -webkit-flex;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.content-centered {
+	text-align: center;
+}
+
+// text
+.main-heading {
+	font-size: $main-heading-size;
+	line-height: 61px;
+	font-family: "aileron-black", sans-serif;
+
+	@include mq(576px) {
+		font-size: $title-size;
+		line-height: 1.5;
+	}
+}
+
+.main-title {
+	font-size: $title-size;
+	line-height: 43px;
+	font-family: "aileron-black", sans-serif;
+}
+
+.heading1 {
+	font-size: $h1-size;
+	line-height: 29px;
+	font-family: "aileron-bold", sans-serif;
+}
+
+.heading2 {
+	font-size: $h2-size;
+	line-height: 27px;
+}
+
+.heading3 {
+	font-size: $h3-size;
+	line-height: 23px;
+}
+
+.paragraph {
+	font-size: $paragraph-size;
+	line-height: 24px;
+}
+
+.paragraph-short {
+	font-size: $paragraph-size;
+	line-height: 20px;
+}
+
+.body-text {
+	font-size: $body-size;
+	line-height: 20px;
+}
+
+.text-heavy {
+	font-family: "aileron-heavy", sans-serif;
+}
+
+.text-bold {
+	font-family: "aileron-bold", sans-serif;
+}
+
+.text-semibold {
+	font-family: "aileron-semibold", sans-serif;
+}
+
+.text-white {
+	color: #fff;
+}
+
+.text-dark-indigo {
+	color: $dark-indigo;
+}
+
+.text-dodger-blue {
+	color: $dodger-blue;
+}
+
+.text-sky-blue {
+	color: $sky-blue;
+}
+
+.text-sand {
+	color: $sand !important;
+}
+
+.text-apricot {
+	color: $apricot;
+}
+
+.text-light-pink {
+	color: $very-light-pink-2;
+}
+
+.text-light-pink3 {
+	color: $very-light-pink-3;
+}
+
+.text-coral-pink {
+	color: $coral-pink;
+}
+
+.text-uppercase {
+	text-transform: uppercase;
+}
+
+// buttons
+.button {
+	font-family: "aileron-semibold", sans-serif;
+	cursor: pointer;
+	display: inline-block;
+	-webkit-appearance: none !important;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	text-align: center;
+	vertical-align: middle;
+	border-radius: 4px;
+	outline: none;
+
+	// button font
+	font-size: $button-font-size;
+	line-height: 20px;
+	letter-spacing: 1px;
+
+	transition: 0.2s ease;
+	-webkit-transition: 0.2s ease;
+	-moz-transition: 0.2s ease;
+
+	&:disabled {
+		opacity: 0.7;
+		pointer-events: none;
+	}
+}
+
+.button-sand-gradient {
+	background-image: linear-gradient(#e4ba63, #ffed9f);
+	border-color: transparent;
+	color: $dark-grey-blue;
+	text-transform: uppercase;
+
+	height: 44px;
+	padding: 12px 16px;
+
+	&:hover {
+		background-color: $sand;
+	}
+}
+
+.challenge-dialog {
+	.mat-dialog-container {
+		padding: 16px !important;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		box-sizing: border-box;
+		background: rgb(22, 43, 61);
+		border-radius: 8px;
+	}
+
+	.mat-dialog-content {
+		width: 100%;
+		background: transparent;
+		box-sizing: border-box;
+		padding: 0;
+		margin: 0;
+	}
+}
+
+.mat-progress-spinner circle,
+.mat-spinner circle {
+	stroke: $very-light-pink-3;
+}

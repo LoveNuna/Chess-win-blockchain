@@ -1,0 +1,86 @@
+<mat-dialog-content>
+	<div class="challenge-overview">
+		<p class="label">Challenged by</p>
+
+		<div class="profile">
+			<img *ngIf="dialogData.opponentImage; else defaultUserImage" class="profile__image"
+				[src]="dialogData.opponentImage" width="40px" height="40px" />
+			<img *ngIf="dialogData.opponentCountry" class="profile__country-image"
+				src="../../../../../../assets/images/flags/{{ dialogData.opponentCountry }}.png" width="18px"
+				height="18px" />
+			<div class="profile__info">
+				<p class="profile__name">{{ dialogData.opponentName }}</p>
+				<p class="profile__nickname">{{ dialogData.opponentNickname }}</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="challenge-type">
+		<p class="label">Play with</p>
+
+		<div class="challenge-type__actions">
+			<button type="button" class="challenge-type__button" [ngClass]="{
+          'challenge-type__button--standard': dialogData.challengeType === challengeType.standard,
+          'challenge-type__button--gold': dialogData.challengeType === challengeType.gold
+        }">
+				{{ dialogData.challengeType === challengeType.gold ? 'Play Gold' : 'Play Standard' }}
+			</button>
+		</div>
+	</div>
+
+	<div class="challenge-details">
+		<div class="challenge-ammount">
+			<p class="label">Ammount</p>
+
+			<div class="challenge-ammount-selector-container">
+				<button type="button">
+					<img class="coin-icon" [src]="
+              dialogData.challengeType === challengeType.gold
+                ? '../../../../../assets/icons/gold-coin-icon.png'
+                : '../../../../../assets/icons/silver-coin-icon.png'
+            " width="20px" height="20px" />
+					{{ dialogData.challengeAmmount }}
+					{{ dialogData.challengeType === challengeType.gold ? ' Gold' : ' Silver' }}
+				</button>
+			</div>
+		</div>
+
+		<div class="challenge-time">
+			<p class="label">Move time</p>
+
+			<div class="challenge-time-selector-container">
+				<div class="challenge-time-selector-mask">
+					<button type="button">
+						<img class="time-icon" src="../../../../../../assets/icons/timer-icon.png" width="12px"
+							height="12px" />
+						{{ getTimeByType(dialogData.challengeTime) }}
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="fair-play">
+		<p class="label">Fair play</p>
+
+		<div class="fair-play__actions">
+			<button type="button" class="fair-play__button">
+				{{ dialogData.challengeFairPlay ? 'Enabled' : 'Disabled' }}
+			</button>
+		</div>
+	</div>
+
+	<div class="actions">
+		<button type="button" class="accept-button" (click)="respondToRequest(true)">
+			Accept
+		</button>
+		<button type="button" class="decline-button" (click)="respondToRequest(false)">
+			Decline
+		</button>
+	</div>
+</mat-dialog-content>
+
+<ng-template #defaultUserImage>
+	<img class="profile__image" src="../../../../../../assets/images/dashboard/default-user-image.png" width="40px"
+		height="40px" />
+</ng-template>

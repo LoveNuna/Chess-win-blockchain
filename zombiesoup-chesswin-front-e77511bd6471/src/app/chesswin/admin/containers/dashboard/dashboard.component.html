@@ -1,0 +1,9 @@
+<ng-container *ngIf="dashboardData; else loading">
+	<app-stats-view title="Dashboard" [stats]="dashboardData"></app-stats-view>
+</ng-container>
+
+<ng-template #loading>
+	<div class="loading-container">
+		<app-loading size="70"></app-loading>
+	</div>
+</ng-template>

@@ -1,0 +1,58 @@
+version: 2 
+jobs:
+  build: 
+    working_directory: ~/chess-win.com
+    docker: 
+      - image: circleci/node:10.16.3-stretch
+    steps: 
+      - checkout
+      - run:
+          name: Show current branch
+          command: echo ${CIRCLE_BRANCH}
+      - restore_cache: 
+          key: dependency-cache-{{ checksum "~/chess-win.com/package.json" }}
+      - run:
+          name: checking if node, npm and things are intact
+          command: node -v && npm -v && python --version
+      - run:
+          name: check directory
+          command: 'ls -l && pwd'
+      - run:
+          name: Installing packages
+          command: sudo npm ci > /dev/null
+      - run:
+          name: Installing angular CLI for frontend testing and AWS CLI
+          command: sudo npm install -g @angular/cli > /dev/null && ls && sudo apt-get install awscli && ng version && aws --version
+      - run:
+          name: Getting necessary dependencies to countinue with testing and deploying
+          command: sudo ng update && sudo ng update @angular/cli --force > /dev/null && sudo ng update
+      - run:
+          name: Installing packages
+          command: sudo npm ci > /dev/null
+      - save_cache: 
+          key: dependency-cache-{{ checksum "~/chess-win.com/package.json" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: checking directory
+          command: ls -l && pwd
+      - run:
+          name: building the web
+          command: sudo ng build --prod --progress=false
+      - run:
+          name: Angular linting
+          command: cd dist && ng lint --force=true
+      - run:
+          name: $BIN_FOLDER sumthing?
+          command: cd /usr/local/bin && pwd
+      - run:
+          name: Setting Signature Version 4 for S3 Request Authentication
+          command: $BIN_FOLDER/aws configure set default.s3.signature_version s3v4
+      - run:
+          name: AWS credentials check and stuff
+          command: aws configure list && aws sts get-caller-identity
+      - run:
+          name: Deploy to S3
+          command: |
+                $BIN_FOLDER/aws s3 rm s3://chess-win.com --recursive
+                $BIN_FOLDER/aws --region eu-central-1 s3 sync ~/chess-win.com/dist/chesswin-web s3://chess-win.com/ --delete --acl public-read
